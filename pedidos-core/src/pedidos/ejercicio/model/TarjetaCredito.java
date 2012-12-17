@@ -6,7 +6,7 @@ package pedidos.ejercicio.model;
  * TarjetaCredito entity. @author MyEclipse Persistence Tools
  */
 
-public class TarjetaCredito  implements java.io.Serializable {
+public class TarjetaCredito extends FormaPago implements java.io.Serializable {
 
 
     // Fields    

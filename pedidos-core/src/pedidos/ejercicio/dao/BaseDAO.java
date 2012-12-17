@@ -64,9 +64,7 @@ public abstract class BaseDAO {
 		if(query!=null){
 			lista = (List<Object>) query.list();			
 		}
-				
 		return lista;
-		
 	}
 	
 	public void closeSession(){

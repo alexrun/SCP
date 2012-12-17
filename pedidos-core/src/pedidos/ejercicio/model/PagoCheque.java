@@ -7,7 +7,7 @@ import java.util.Date;
  * PagoCheque entity. @author MyEclipse Persistence Tools
  */
 
-public class PagoCheque  implements java.io.Serializable {
+public class PagoCheque extends FormaPago implements java.io.Serializable {
 
 
     /**

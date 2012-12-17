@@ -6,13 +6,15 @@
 -->
 <hibernate-mapping>
     <class name="pedidos.ejercicio.model.FormaPago" table="FORMA_PAGO" schema="ALEXRUN1">
+    
+    <!-- Defino la clase Padre FormaPago-->
+    
         <id name="id" type="java.lang.Integer">
             <column name="ID" />
             <generator class="native" />
         </id>
-        <many-to-one name="pedidos" class="pedidos.ejercicio.model.Pedidos" fetch="select">
-            <column name="PEDIDO_REF" not-null="true" />
-        </many-to-one>
+        
+        <!-- Defino las propiedades de la clase Padre FormaPago-->
         <property name="propietario" type="java.lang.String">
             <column name="PROPIETARIO" length="20" not-null="true" />
         </property>
@@ -22,17 +24,53 @@
         <property name="monto" type="java.lang.Double">
             <column name="MONTO" precision="10" not-null="true" />
         </property>
-        <set name="pagoCheques" inverse="true">
-            <key>
-                <column name="ID_PAGO_CHEQUE" not-null="true" unique="true" />
-            </key>
-            <one-to-many class="pedidos.ejercicio.model.PagoCheque" />
-        </set>
-        <set name="tarjetaCreditos" inverse="true">
-            <key>
+        
+     <!-- Defino la clase Hija TarjetaCredito -->   
+     
+     	<joined-subclass name="pedidos.ejercicio.model.TarjetaCredito" table="TARJETA_CREDITO" schema="ALEXRUN1">
+     	
+     		<key>
                 <column name="ID_PAGO_TARJETA" not-null="true" unique="true" />
             </key>
-            <one-to-many class="pedidos.ejercicio.model.TarjetaCredito" />
-        </set>
+            
+            <!-- Defino las propiedades de la clase Hija TarjetaCredito --> 
+     		<property name="numeroTarjeta" type="java.lang.Integer">
+            	<column name="NUMERO_TARJETA" not-null="true" />
+        	</property>
+        	<property name="mesVence" type="java.lang.Integer">
+            	<column name="MES_VENCE" not-null="true" />
+        	</property>
+        	<property name="anyoVence" type="java.lang.Integer">
+       	     	<column name="ANYO_VENCE" not-null="true" />
+        	</property>
+        	<property name="banco" type="java.lang.String">
+            	<column name="BANCO" length="20" />
+        	</property>
+        
+    	</joined-subclass>
+     
+     <!-- Defino la clase Hija PagoCheque -->
+     	<joined-subclass name="pedidos.ejercicio.model.PagoCheque" table="PAGO_CHEQUE" schema="ALEXRUN1">
+     	
+     		<key>
+            	<column name="ID_PAGO_CHEQUE" not-null="true" unique="true" />
+            </key>
+            
+            <!-- Defino las propiedades de la clase Hija PagoCheque --> 
+            <property name="numeroCheque" type="java.lang.Integer">
+            	<column name="NUMERO_CHEQUE" not-null="true" />
+        	</property>
+        	<property name="banco" type="java.lang.String">
+           		<column name="BANCO" length="20" not-null="true" />
+        	</property>
+        	<property name="numeroCuenta" type="java.lang.String">
+        	    <column name="NUMERO_CUENTA" length="20" not-null="true" />
+        	</property>
+        	<property name="fechaCheque" type="java.util.Date">
+        	    <column name="FECHA_CHEQUE" length="10" />
+        	</property>
+           
+    	</joined-subclass>       
+        
     </class>
 </hibernate-mapping>
