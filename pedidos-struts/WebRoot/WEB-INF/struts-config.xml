@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+  <form-beans >
+    <form-bean name="categoriaForm" type="pedidos.struts.form.CategoriaForm" />
+    <form-bean name="itemForm" type="pedidos.struts.form.ItemForm" />
+    <form-bean name="clienteForm" type="pedidos.struts.form.ClienteForm" />
+  </form-beans>
+
+  <global-exceptions />
+  <global-forwards />
+  <action-mappings >
+    <action
+      parameter="newCategoria"
+      path="/newCategoria"
+      type="pedidos.struts.action.CategoriaAction"
+      validate="false"
+      cancellable="true">
+      <forward name="goNew" path="/form/newCategoria.jsp" />
+    </action>
+    <action
+      attribute="categoriaForm"
+      input="/form/showCategoria.jsp"
+      name="categoriaForm"
+      parameter="showCategoria"
+      path="/showCategoria"
+      scope="request"
+      type="pedidos.struts.action.CategoriaAction"
+      cancellable="true">
+      <forward name="goShow" path="/form/showCategoria.jsp" />
+    </action>
+    <action
+      parameter="goMenu"
+      path="/principal"
+      type="pedidos.struts.action.PrincipalAction"
+      cancellable="true">
+      
+      <forward name="goMenu" path="/pricipal.jsp" />
+    </action>
+    <action
+      attribute="CategoriaForm"
+      input="/form/newCategoria.jsp"
+      name="categoriaForm"
+      parameter="guardarCategoria"
+      path="/guardarCategoria"
+      scope="request"
+      type="pedidos.struts.action.CategoriaAction"
+      cancellable="true">
+      <forward name="goShow" path="/showCategoria.do" />
+    </action>
+    <action
+      parameter="newItem"
+      path="/newItem"
+      type="pedidos.struts.action.ItemAction"
+      cancellable="true">
+      <forward name="goNew" path="/form/newItem.jsp" />
+    </action>
+    <action
+      attribute="itemForm"
+      input="/form/newItem.jsp"
+      name="itemForm"
+      parameter="guardarItem"
+      path="/guardarItem"
+      scope="request"
+      type="pedidos.struts.action.ItemAction"
+      cancellable="true">
+      <forward name="goShow" path="/showItem.do" />
+    </action>
+    <action
+      attribute="itemForm"
+      input="/form/showItem.jsp"
+      name="itemForm"
+      parameter="showItem"
+      path="/showItem"
+      scope="request"
+      type="pedidos.struts.action.ItemAction"
+      cancellable="true">
+      <forward name="goShow" path="/form/showItem.jsp" />
+    </action>
+    <action
+      attribute="clienteForm"
+      input="/form/newCliente.jsp"
+      name="clienteForm"
+      parameter="guardarCliente"
+      path="/guardarCliente"
+      scope="request"
+      type="pedidos.struts.action.ClienteAction"
+      cancellable="true">
+      <forward name="goShow" path="/showCliente.do" />
+    </action>
+    <action
+      parameter="newCliente"
+      path="/newCliente"
+      type="pedidos.struts.action.ClienteAction"
+      cancellable="true">
+      <forward name="goNew" path="/form/newCliente.jsp" />
+    </action>
+    <action
+      attribute="clienteForm"
+      input="/form/showCliente.jsp"
+      name="clienteForm"
+      parameter="showCliente"
+      path="/showCliente"
+      scope="request"
+      type="pedidos.struts.action.ClienteAction"
+      validate="false"
+      cancellable="true">
+      <forward name="goShow" path="/form/showCliente.jsp" />
+    </action>
+
+  </action-mappings>
+
+  <message-resources parameter="pedidos.struts.ApplicationResources" />
+</struts-config>
+

@@ -1,0 +1,34 @@
+Realizar una aplicacion Struts/Hibernate que modele un sistema de control de pedidos.
+
+Se adjuntan 2 archivos describiendo el modelo relacional y el modelo
+de objetos para el sistema:
+
+- Ejercicio_modeloRelacional.jpg
+- Ejercicio_modeloObjeto.png
+
+Cree los archivos Hibernate necesarios para mappear ambos modelos.
+Para representar las relaciones de herencia use la tecnica: TABLA POR SUBCLASE
+
+
+El sistema debe permitir lo siguiente:
+
+- Crear Categorias, Items y Clientes.
+- Eliminar Categorias, Itmes y Clientes.
+- Registrar pedidos y Pagos para el pedido.
+- Eliminar pedidos.
+- Modificar el estatus de un pedido previamente regsitrado.
+
+En cuanto a consultas:
+
+- Mostrar todos las Categorias
+- Mostrar items por Categoria
+- Mostrar Clientes por ciudad de ubicacion
+- Buscar Clientes por cedula
+- Mostrar todos los pedidos de un cliente
+- Mostrar todos los pedidos por un estatus dado
+- Mostrar todos los pedidos entre un rango de fecha dado y una ciudad de ubicacion del cliente
+- Mostrar todos los pedidos por un tipo de pago determinado 
+
+Utilice Actions de tipo MappingDispatchAction
+
+

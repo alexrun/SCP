@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="pedidos-struts"
+  id="myeclipse.1355923714551"
+  context-root="/pedidos-struts"
+  j2ee-spec="5.0"
+  archive="pedidos-struts.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

@@ -18,9 +18,9 @@ public class Categoria  implements java.io.Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private Integer id;
-     private String nombre;
-     private String descripcion;
-     @SuppressWarnings("unchecked")
+    private String nombre;
+    private String descripcion;
+    @SuppressWarnings("unchecked")
 	private Set items = new HashSet(0);
 
 
@@ -46,7 +46,13 @@ public class Categoria  implements java.io.Serializable {
    
     // Property accessors
 
-    public Integer getId() {
+    public Categoria(String nombre, String descripcion) {
+		// TODO Auto-generated constructor stub
+    	  this.nombre = nombre;
+          this.descripcion = descripcion;
+	}
+
+	public Integer getId() {
         return this.id;
     }
     

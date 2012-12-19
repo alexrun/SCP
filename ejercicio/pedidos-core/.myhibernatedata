@@ -1,0 +1,24 @@
+#MyEclipse Hibernate Properties
+#Mon Dec 17 09:39:46 VET 2012
+sessionFactoryName=pedidos.ejercicio.model.HibernateSessionFactory
+genBasicCompId=false
+profile=
+daoSFId=
+version=3.3
+jndiPath=
+detectM2M=false
+reStrategyClass=
+detectO2O=false
+springDaoFile=
+useJavaTypes=true
+keyGenerator=native
+libInstallFolder=lib
+addLibs2Project=true
+genVersionTag=false
+sessionFactoryId=
+basePersistenceClass=
+genAnnotations=false
+reSettingsFile=/pedidos-core/hibernate.reveng.xml
+configFile=/pedidos-core/src/hibernate.cfg.xml
+createConfigFile=true
+addLibs2Classpath=true

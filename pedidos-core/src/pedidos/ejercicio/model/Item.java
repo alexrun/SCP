@@ -52,7 +52,17 @@ public class Item  implements java.io.Serializable {
    
     // Property accessors
 
-    public Integer getId() {
+    public Item(Categoria categoria, String nombre, String descripcion, Double precioCompra, Double precioVenta, String imagenUrl) {
+		// TODO Auto-generated constructor stub
+    	 this.categoria = categoria;
+         this.nombre = nombre;
+         this.descripcion = descripcion;
+         this.precioCompra = precioCompra;
+         this.precioVenta = precioVenta;
+	}  
+   
+
+	public Integer getId() {
         return this.id;
     }
     
