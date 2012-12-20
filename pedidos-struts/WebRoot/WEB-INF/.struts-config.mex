@@ -2,7 +2,7 @@
 <FlowViewLayout Version="1.2">
   <StrutsActivity path="/newCategoria.do" location="240,435" dimension="241,76" />
   <StrutsActivity path="/showCategoria.do" location="240,225" dimension="241,76" />
-  <StrutsActivity path="/principal.do" location="1020,225" dimension="240,76" />
+  <StrutsActivity path="/principal.do" location="1020,435" dimension="240,76" />
   <StrutsActivity path="/guardarCategoria.do" location="240,330" dimension="241,76" />
   <StrutsActivity path="/newItem.do" location="495,435" dimension="256,76" />
   <StrutsActivity path="/guardarItem.do" location="495,330" dimension="256,76" />
@@ -10,13 +10,6 @@
   <StrutsActivity path="/guardarCliente.do" location="-15,330" dimension="241,76" />
   <StrutsActivity path="/newCliente.do" location="-15,435" dimension="241,76" />
   <StrutsActivity path="/showCliente.do" location="-15,225" dimension="241,76" />
-  <StrutsActivity path="/form/newCategoria.jsp" location="285,540" dimension="166,51" />
-  <StrutsActivity path="/form/showCategoria.jsp" location="285,135" dimension="166,51" />
-  <StrutsActivity path="/pricipal.jsp" location="1050,135" dimension="166,51" />
-  <StrutsActivity path="/form/newItem.jsp" location="540,540" dimension="136,51" />
-  <StrutsActivity path="/form/showItem.jsp" location="555,135" dimension="166,51" />
-  <StrutsActivity path="/form/newCliente.jsp" location="30,540" dimension="166,51" />
-  <StrutsActivity path="/form/showCliente.jsp" location="30,135" dimension="166,51" />
   <StrutsActivity path="/deleteCategoria.do" location="240,30" dimension="241,76" />
   <StrutsActivity path="/deleteItem.do" location="495,30" dimension="256,76" />
   <StrutsActivity path="/deleteCliente.do" location="-15,30" dimension="239,76" />
@@ -24,16 +17,17 @@
   <StrutsActivity path="/guardarPedido.do" location="765,330" dimension="241,76" />
   <StrutsActivity path="/showPedido.do" location="765,225" dimension="241,76" />
   <StrutsActivity path="/deletePedido.do" location="765,30" dimension="241,76" />
+  <StrutsActivity path="/form/newCategoria.jsp" location="285,540" dimension="166,51" />
+  <StrutsActivity path="/form/showCategoria.jsp" location="285,135" dimension="166,51" />
+  <StrutsActivity path="/pricipal.jsp" location="1065,345" dimension="166,51" />
+  <StrutsActivity path="/form/newItem.jsp" location="540,540" dimension="136,51" />
+  <StrutsActivity path="/form/showItem.jsp" location="555,135" dimension="166,51" />
+  <StrutsActivity path="/form/newCliente.jsp" location="30,540" dimension="166,51" />
+  <StrutsActivity path="/form/showCliente.jsp" location="30,135" dimension="166,51" />
+  <StrutsActivity path="/form/newPedido.jsp" location="810,540" dimension="143,51" />
+  <StrutsActivity path="/form/showPedido.jsp" location="825,135" dimension="150,49" />
   <StrutsTransition id="/showItem.do,goShow,/form/showItem.jsp,1" routingType="1">
     <Bendpoints />
-  </StrutsTransition>
-  <StrutsTransition id="/newItem,null,/guardarItem.do,2" routingType="0">
-    <AutomaticBendpoints>
-      <AbsolutePoint location="131,575" />
-      <AbsolutePoint location="1261,575" />
-      <AbsolutePoint location="1261,261" />
-      <AbsolutePoint location="495,366" />
-    </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/newItem.do,goNew,/form/newItem.jsp,1" routingType="0">
     <AutomaticBendpoints>
@@ -46,6 +40,11 @@
       <AbsolutePoint location="104,135" />
       <AbsolutePoint location="104,106" />
     </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/deletePedido.do,goShow,/showPedido.do,1" routingType="1">
+    <Bendpoints>
+      <Point rDim1="-105,97" rDim2="-105,-98" />
+    </Bendpoints>
   </StrutsTransition>
   <StrutsTransition id="/form/showItem.jsp,null,/deleteItem.do,2" routingType="0">
     <AutomaticBendpoints>
@@ -70,37 +69,21 @@
       <Point rDim1="-113,95" rDim2="-113,-98" />
     </Bendpoints>
   </StrutsTransition>
-  <StrutsTransition id="newItem,null,/guardarItem.do,2" routingType="0">
-    <AutomaticBendpoints>
-      <AbsolutePoint location="426,575" />
-      <AbsolutePoint location="1261,575" />
-      <AbsolutePoint location="1261,261" />
-      <AbsolutePoint location="495,366" />
-    </AutomaticBendpoints>
-  </StrutsTransition>
   <StrutsTransition id="/deleteCategoria.do,goShow,/showCategoria.do,1" routingType="1">
     <Bendpoints>
       <Point rDim1="-105,97" rDim2="-105,-98" />
     </Bendpoints>
   </StrutsTransition>
-  <StrutsTransition id="newItem.do,null,/guardarItem.do,2" routingType="0">
+  <StrutsTransition id="/newPedido.do,goNew,/form/newPedido.jsp,1" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="753,590" />
-      <AbsolutePoint location="1261,590" />
-      <AbsolutePoint location="1261,261" />
-      <AbsolutePoint location="495,366" />
+      <AbsolutePoint location="881,511" />
+      <AbsolutePoint location="881,540" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/principal.do,goMenu,/pricipal.jsp,1" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="1133,225" />
-      <AbsolutePoint location="1133,186" />
-    </AutomaticBendpoints>
-  </StrutsTransition>
-  <StrutsTransition id="/guardarCategoria.do,goShow,/showCategoria.do,1" routingType="0">
-    <AutomaticBendpoints>
-      <AbsolutePoint location="360,330" />
-      <AbsolutePoint location="360,301" />
+      <AbsolutePoint location="1148,435" />
+      <AbsolutePoint location="1148,396" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/newCliente.do,goNew,/form/newCliente.jsp,1" routingType="0">
@@ -109,35 +92,28 @@
       <AbsolutePoint location="113,540" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/form/newItem.jsp,null,/guardarItem.do,2" routingType="0">
+  <StrutsTransition id="/guardarCategoria.do,goShow,/showCategoria.do,1" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="540,565" />
-      <AbsolutePoint location="751,355" />
-    </AutomaticBendpoints>
-  </StrutsTransition>
-  <StrutsTransition id="/form/newItem.jsp,null,/newItem.do,2" routingType="0">
-    <AutomaticBendpoints>
-      <AbsolutePoint location="578,591" />
-      <AbsolutePoint location="1673,338" />
-      <AbsolutePoint location="751,443" />
-    </AutomaticBendpoints>
-  </StrutsTransition>
-  <StrutsTransition id="/form/newCategoria.jsp,null,/guardarCategoria.do,2" routingType="0">
-    <AutomaticBendpoints>
-      <AbsolutePoint location="285,565" />
-      <AbsolutePoint location="481,355" />
-    </AutomaticBendpoints>
-  </StrutsTransition>
-  <StrutsTransition id="/form/newCliente.jsp,null,/guardarCliente.do,2" routingType="0">
-    <AutomaticBendpoints>
-      <AbsolutePoint location="37,565" />
-      <AbsolutePoint location="226,355" />
+      <AbsolutePoint location="360,330" />
+      <AbsolutePoint location="360,301" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/guardarItem.do,goShow,/showItem.do,1" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="623,330" />
       <AbsolutePoint location="623,301" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/showPedido.do,goShow,/form/showPedido.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="900,225" />
+      <AbsolutePoint location="900,184" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/guardarPedido.do,goShow,/showPedido.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="885,330" />
+      <AbsolutePoint location="885,301" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/newCliente.do,null,/guardarCliente.do,2" routingType="0">
@@ -152,16 +128,22 @@
       <AbsolutePoint location="360,406" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/form/showCliente.jsp,null,/showCliente.do,2" routingType="0">
+  <StrutsTransition id="/form/showPedido.jsp,null,/deletePedido.do,2" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="143,186" />
-      <AbsolutePoint location="143,225" />
+      <AbsolutePoint location="885,135" />
+      <AbsolutePoint location="885,106" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/form/showCategoria.jsp,null,/deleteCategoria.do,2" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="360,135" />
       <AbsolutePoint location="360,106" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/newPedido.do,null,/guardarPedido.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="885,435" />
+      <AbsolutePoint location="885,406" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/deleteCliente.do,goShow,/showCliente.do,1" routingType="1">
@@ -173,18 +155,6 @@
     <AutomaticBendpoints>
       <AbsolutePoint location="623,435" />
       <AbsolutePoint location="623,406" />
-    </AutomaticBendpoints>
-  </StrutsTransition>
-  <StrutsTransition id="/form/showCategoria.jsp,null,/showCategoria.do,2" routingType="0">
-    <AutomaticBendpoints>
-      <AbsolutePoint location="398,186" />
-      <AbsolutePoint location="398,225" />
-    </AutomaticBendpoints>
-  </StrutsTransition>
-  <StrutsTransition id="/form/showItem.jsp,null,/showItem.do,2" routingType="0">
-    <AutomaticBendpoints>
-      <AbsolutePoint location="668,186" />
-      <AbsolutePoint location="638,225" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/showCliente.do,goShow,/form/showCliente.jsp,1" routingType="1">

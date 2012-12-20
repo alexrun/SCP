@@ -40,11 +40,17 @@ request.setAttribute("path",path);
 	
 	<body>
 		<h2>Listado de Items</h2>
+		
+		
+	<c:choose>
+      <c:when test="${not empty items}">
+		
 			<table id="items">
 				
        		<tbody>
                <tr>                       
                        <td align="center" bgColor="#57b031"><font size="4"><strong><font color="#ffffff">Id</font></strong></font></td>
+                       <td align="center" bgColor="#57b031"><font size="4"><strong><font color="#ffffff">Categoria</font></strong></font></td>
                        <td align="center" bgColor="#57b031"><font size="4"><strong><font color="#ffffff">Nombre</font></strong></font></td>
                        <td align="center" bgColor="#57b031"><font size="4"><strong><font color="#ffffff">Descripcion</font></strong></font></td>
                        <td align="center" bgColor="#57b031"><font size="4"><strong><font color="#ffffff">Precio Compra</font></strong></font></td>                             
@@ -56,6 +62,7 @@ request.setAttribute("path",path);
                <c:forEach var="it" items="${items}">                
                        <tr>
                                <td align="center"> ${it.id}</td>
+                               <td align="center"> ${it.categoria.nombre}</td>
                                <td align="center"> ${it.nombre}</td>
                                <td align="center"> ${it.descripcion}</td>
                                <td align="center"> ${it.precioCompra}</td>
@@ -74,7 +81,13 @@ request.setAttribute("path",path);
 			</tbody>
 			</table>
 		
-    			<a href="./principal.do">Atras</a>
+		</c:when>
+      <c:otherwise>
+      	No se encontraron registros de Items.<br/><br/>
+      </c:otherwise>
+	</c:choose>   
+		
+    		<a href="./principal.do">Atras</a>
 		
 	</body>
 </html>

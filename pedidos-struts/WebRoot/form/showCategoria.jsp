@@ -41,6 +41,9 @@ request.setAttribute("path",path);
 	<body>
 		<h2>Listado de Categorias</h2>
 		
+	<c:choose>
+      <c:when test="${not empty categorias}">
+		
 		<table id="categorias">
 				
        		<tbody>
@@ -73,6 +76,12 @@ request.setAttribute("path",path);
 			</tbody>	
 		    					
 		</table>
+		
+		 </c:when>
+      <c:otherwise>
+      	No se encontraron registros de Categorias.<br/><br/>
+      </c:otherwise>
+	</c:choose>  
 		
 		<a href="./principal.do">Atras</a>
 	</body>

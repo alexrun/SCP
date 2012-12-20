@@ -41,7 +41,7 @@ public class ItemAction extends MappingDispatchAction {
 		String fwd = "goNew";
 		PedidosServer pserver = new PedidosServer();
 		request.setAttribute("categorias", pserver.listarCategorias());
-		System.out.println("newItem");
+		System.out.println("newItem");		
 		return mapping.findForward(fwd);
 	}
 	
@@ -50,6 +50,12 @@ public class ItemAction extends MappingDispatchAction {
 		String fwd = "goShow";
 		PedidosServer pserver = new PedidosServer();
 		request.setAttribute("items", pserver.listarItems());
+		
+		if (request.getParameter("cbCategoria")!=null){
+			Integer idCat = new Integer( request.getParameter("cbCategoria"));		
+			request.setAttribute("items", pserver.listarItemByCategoria(idCat));	
+			System.out.println("ID CAT showItem getParameter" + idCat);
+		}
 		
 		System.out.println("showItem");
 		return mapping.findForward(fwd);

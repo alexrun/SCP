@@ -27,7 +27,8 @@ public class PedidosServer {
 		return dao.listarPedidos();		
 	}
 	
-	public ArrayList<Item> listarItemByCategoria(String idCategoria){
+	public ArrayList<Item> listarItemByCategoria(Integer idCategoria){
+		System.out.println("Pedidos SERVER listarItemByCategoria ID=" + idCategoria);
 		return dao.listarItemByCategoria(idCategoria);	
 	}
 	
@@ -91,7 +92,28 @@ public class PedidosServer {
 		dao.delete(cl);
 	}
 
-	
+	public Pedidos crearPedido(Pedidos ped) {
+		// TODO Auto-generated method stub
+		dao.save(ped);
+		return ped;
+	}
+
+	public Pedidos buscarPedido(Integer idPedido) {
+		// TODO Auto-generated method stub
+		return (Pedidos)dao.getObject(idPedido, Pedidos.class);
+	}
+
+	public void deletePedido(Pedidos ped) {
+		// TODO Auto-generated method stub
+		dao.delete(ped);
+	}
+
+	public Object listarClientesByCedula(String ced) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+		
 	
 	
 

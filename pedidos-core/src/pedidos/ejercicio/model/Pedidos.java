@@ -30,9 +30,20 @@ public class Pedidos  implements java.io.Serializable {
 
     // Constructors
 
-    /** default constructor */
-    public Pedidos() {
+    /** default constructor 
+     * @param string 
+     * @param date 
+     * @param integer */
+    public Pedidos(Cliente cliente, Date fecha, String estatus) {
+    	this.cliente = cliente;
+        this.fecha = fecha;
+        this.estatus = estatus;
     }
+
+	public Pedidos() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/** minimal constructor */
     public Pedidos(Cliente cliente, Date fecha) {

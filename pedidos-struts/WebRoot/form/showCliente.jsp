@@ -40,6 +40,9 @@ request.setAttribute("path",path);
 	<body>
 		<h2>Listado de Clientes</h2>
 			
+	<c:choose>
+      <c:when test="${not empty clientes}">
+			
 			<table id="clientes">
        		<tbody>
                <tr>                       
@@ -74,6 +77,12 @@ request.setAttribute("path",path);
                </c:forEach>
 			</tbody>
 			</table>
+			
+			</c:when>
+      <c:otherwise>
+      	No se encontraron registros de Clientes.<br/><br/>
+      </c:otherwise>
+	</c:choose> 
 		
     			<a href="./principal.do">Atras</a>
 		

@@ -49,6 +49,11 @@ public class ClienteAction extends MappingDispatchAction {
 		String fwd = "goShow";
 		PedidosServer pserver = new PedidosServer();
 		request.setAttribute("clientes", pserver.listarClientes());
+		if (request.getParameter("cliente")!=null){
+			String ced = request.getParameter("categoria");			
+			request.setAttribute("clientes", pserver.listarClientesByCedula(ced));	
+			System.out.println("ID CED showCliente");
+		}
 		System.out.println("showCliente");
 		return mapping.findForward(fwd);
 	}

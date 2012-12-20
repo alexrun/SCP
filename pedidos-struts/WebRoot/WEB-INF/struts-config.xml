@@ -6,6 +6,7 @@
     <form-bean name="categoriaForm" type="pedidos.struts.form.CategoriaForm" />
     <form-bean name="itemForm" type="pedidos.struts.form.ItemForm" />
     <form-bean name="clienteForm" type="pedidos.struts.form.ClienteForm" />
+    <form-bean name="pedidoForm" type="pedidos.struts.form.PedidoForm" />
   </form-beans>
 
   <global-exceptions />
@@ -125,22 +126,41 @@
       parameter="newPedido"
       path="/newPedido"
       type="pedidos.struts.action.PedidoAction"
-      cancellable="true" />
+      cancellable="true">
+      <forward name="goNew" path="/form/newPedido.jsp" />
+    </action>
     <action
+      attribute="pedidoForm"
+      input="/newPedido.do"
+      name="pedidoForm"
       parameter="guardarPedido"
       path="/guardarPedido"
+      scope="request"
       type="pedidos.struts.action.PedidoAction"
-      cancellable="true" />
+      cancellable="true">
+      <forward name="goShow" path="/showPedido.do" />
+    </action>
+    
     <action
       parameter="showPedido"
       path="/showPedido"
       type="pedidos.struts.action.PedidoAction"
-      cancellable="true" />
+      cancellable="true">
+      <forward name="goShow" path="/form/showPedido.jsp" />
+    </action>
     <action
+      input="/form/showPedido.jsp"
       parameter="deletePedido"
       path="/deletePedido"
       type="pedidos.struts.action.PedidoAction"
-      cancellable="true" />
+      cancellable="true">
+      <forward name="goShow" path="/showPedido.do" />
+    </action>
+    
+    
+    
+    
+    
 
   </action-mappings>
 

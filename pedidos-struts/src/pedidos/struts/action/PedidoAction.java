@@ -4,12 +4,21 @@
  */
 package pedidos.struts.action;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.actions.MappingDispatchAction;
+
+import pedidos.ejercicio.model.Cliente;
+import pedidos.ejercicio.model.Pedidos;
+import pedidos.services.PedidosServer;
+import pedidos.struts.form.PedidoForm;
 
 /** 
  * MyEclipse Struts
@@ -31,9 +40,60 @@ public class PedidoAction extends MappingDispatchAction {
 	 * @param response
 	 * @return ActionForward
 	 */
-	public ActionForward execute(ActionMapping mapping, ActionForm form,
+	public ActionForward newPedido(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		String fwd = "goNew";
+		PedidosServer pserver = new PedidosServer();
+		request.setAttribute("clientes", pserver.listarClientes());
+		request.setAttribute("items", pserver.listarItems());
+		System.out.println("newPedido");
+		return mapping.findForward(fwd);
 	}
+	
+	public ActionForward showPedido(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response) {
+		String fwd = "goShow";
+		PedidosServer pserver = new PedidosServer();
+		request.setAttribute("pedidos", pserver.listarPedidos());
+		
+		System.out.println("showPedido");
+		return mapping.findForward(fwd);
+	}
+	
+	public ActionForward guardarPedido(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response) {
+		PedidoForm newPedidoForm = (PedidoForm) form;
+		String fwd = "goShow";
+		PedidosServer pserver = new PedidosServer();	
+		SimpleDateFormat formatoDelTexto = new SimpleDateFormat("dd/MM/yyyy");
+		
+		Date fecha = null;
+		
+		try {
+			fecha = formatoDelTexto.parse(newPedidoForm.getFecha());
+			} catch (ParseException ex) {
+			ex.printStackTrace();
+			}
+		
+		Cliente cli = pserver.buscarCliente(newPedidoForm.getCliente());
+						
+		Pedidos ped = new Pedidos(cli,fecha,newPedidoForm.getEstatus());
+
+		pserver.crearPedido(ped);	
+		request.setAttribute("pedido", ped);
+		System.out.println("guardarPedido");
+		return mapping.findForward(fwd);
+	}
+	
+	public ActionForward deletePedido(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response) {
+		String fwd = "goShow";
+		PedidosServer pserver = new PedidosServer();
+		Pedidos ped = pserver.buscarPedido(new Integer(request.getParameter("id")));
+		pserver.deletePedido(ped);
+		System.out.println("deletePedido");
+		return mapping.findForward(fwd);
+	}
+	
 }

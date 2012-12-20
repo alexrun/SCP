@@ -46,7 +46,7 @@ public class PedidosDAO extends BaseDAO {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public ArrayList<Item> listarItemByCategoria(String idCategoria){
+	public ArrayList<Item> listarItemByCategoria(Integer idCategoria){
 		HashMap<String,Object> params = new HashMap<String,Object>();
 		params.put("idCategoria", idCategoria);
 		List<Object> lista =
