@@ -50,6 +50,7 @@ public class ItemAction extends MappingDispatchAction {
 		String fwd = "goShow";
 		PedidosServer pserver = new PedidosServer();
 		request.setAttribute("items", pserver.listarItems());
+		
 		System.out.println("showItem");
 		return mapping.findForward(fwd);
 	}
@@ -59,12 +60,8 @@ public class ItemAction extends MappingDispatchAction {
 			HttpServletRequest request, HttpServletResponse response) {
 		ItemForm newItemForm = (ItemForm) form;// TODO Auto-generated method stub
 		String fwd = "goShow";
-		PedidosServer pserver = new PedidosServer();	
-		
-		System.out.println(newItemForm.getCategoria());	
-		
+		PedidosServer pserver = new PedidosServer();			
 		Categoria cat = pserver.buscarCategoria(newItemForm.getCategoria());
-		
 		Item it = new Item(cat,
 						newItemForm.getNombre(),
 						newItemForm.getDescripcion(),						
@@ -75,6 +72,16 @@ public class ItemAction extends MappingDispatchAction {
 		pserver.crearItem(it);	
 		request.setAttribute("item", it);
 		System.out.println("guardarItem");
+		return mapping.findForward(fwd);
+	}
+	
+	public ActionForward deleteItem(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response) {
+		String fwd = "goShow";
+		PedidosServer pserver = new PedidosServer();
+		Item it = pserver.buscarItem(new Integer(request.getParameter("id")));
+		pserver.deleteItem(it);
+		System.out.println("deleteItem");
 		return mapping.findForward(fwd);
 	}
 	

@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionMessage;
 
 
 
@@ -58,7 +59,27 @@ public class ItemForm extends ActionForm {
 	public ActionErrors validate(ActionMapping mapping,
 			HttpServletRequest request) {
 		// TODO Auto-generated method stub
-		return null;
+		ActionErrors errores= new ActionErrors();
+		if(nombre==null || nombre.equals("")){
+			errores.add("nombre",new ActionMessage("empty.nombre"));
+		}
+		if(descripcion==null || descripcion.equals("")){
+			errores.add("descripcion",new ActionMessage("empty.descripcion"));
+		}
+		if(categoria==null || categoria<=0){
+			errores.add("categoria",new ActionMessage("empty.categoria"));
+		}
+		if(imagen==null || imagen.equals("")){
+			errores.add("imagen",new ActionMessage("empty.imagen"));
+		}
+		if(precioCompra==null || precioCompra<=0){
+			errores.add("precioCompra",new ActionMessage("empty.precioCompra"));
+		}
+		if(precioVenta==null || precioVenta<=0){
+			errores.add("precioVenta",new ActionMessage("empty.precioVenta"));
+		}
+		
+		return errores;
 	}
 
 	/** 

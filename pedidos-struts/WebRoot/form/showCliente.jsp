@@ -14,22 +14,69 @@ request.setAttribute("path",path);
 	<head>
 		<title>Lista de Clientes</title>
 		<link rel="stylesheet" type="text/css" href="${path}/css/displaytag.css">
+		<style>
+			#clientes
+			{
+				font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+				width:100%;
+				border-collapse:collapse;
+			}
+			table,th,td
+			{
+				border:1px solid green;
+			}
+			td
+			{
+				text-align:center;
+				vertical-align:middle;
+			}
+			th
+			{
+				background-color:green;
+				color:white;
+			}
+		</style>
 	</head>
 	<body>
-		<html:form action="/showCliente">
-			<h2>Listado de Clientes</h2>
-				<disp:table id = "cl" name ="${clientes}">	
-    				<disp:column title="Cliente Id" class="center" >${cl.id}</disp:column>
-    				<disp:column title="Cliente Nombre" class="center" >${cl.nombre}</disp:column>
-    				<disp:column title="Cliente Apellido" class="center" >${cl.apellido}</disp:column>
-    				<disp:column title="Cliente Cedula" class="center" >${cl.cedula}</disp:column>
-    				<disp:column title="Cliente Telefono" class="center" >${cl.telefonos}</disp:column>
-    				<disp:column title="Cliente Ciudad" class="center" >${cl.ciudad}</disp:column>
-    				<disp:column title="Categoria Direccion" class="center" >${cl.direccion}</disp:column>
-    				<disp:setProperty name="basic.msg.empty_list">No se encontraron registros</disp:setProperty>
-    			</disp:table>
-			<html:link action="/principal.do">atras</html:link>
-		</html:form>
+		<h2>Listado de Clientes</h2>
+			
+			<table id="clientes">
+       		<tbody>
+               <tr>                       
+                       <td align="center" bgColor="#57b031"><font size="4"><strong><font color="#ffffff">Id</font></strong></font></td>
+                       <td align="center" bgColor="#57b031"><font size="4"><strong><font color="#ffffff">Nombre</font></strong></font></td>
+                       <td align="center" bgColor="#57b031"><font size="4"><strong><font color="#ffffff">Apellido</font></strong></font></td>
+                       <td align="center" bgColor="#57b031"><font size="4"><strong><font color="#ffffff">Cedula</font></strong></font></td>
+                       <td align="center" bgColor="#57b031"><font size="4"><strong><font color="#ffffff">Telefono</font></strong></font></td>
+                       <td align="center" bgColor="#57b031"><font size="4"><strong><font color="#ffffff">Ciudad</font></strong></font></td>
+                       <td align="center" bgColor="#57b031"><font size="4"><strong><font color="#ffffff">Direccion</font></strong></font></td>
+                       <td align="center" bgColor="#57b031"><font size="4"><strong><font color="#ffffff">Opcion</font></strong></font></td>
+               </tr>
+               
+               <c:forEach var="cl" items="${clientes}">                
+                       <tr>
+                               <td align="center"> ${cl.id}</td>
+                               <td align="center"> ${cl.nombre}</td>
+                               <td align="center"> ${cl.apellido}</td>
+                               <td align="center"> ${cl.cedula}</td>
+                               <td align="center"> ${cl.telefonos}</td>
+                               <td align="center"> ${cl.ciudad}</td>
+                               <td align="center"> ${cl.direccion}</td>
+                               <td align="center">
+                               		<form action="./deleteCliente.do" method="post">
+                               			<button type="submit">
+                              				<p><img alt="" src="img/nok.png" height="25"></p>
+                               			</button>
+                               			<input type="hidden" value="${cl.id}" name="id">
+                               		</form>
+                               </td>
+                       </tr>
+               </c:forEach>
+			</tbody>
+			</table>
+		
+    			<a href="./principal.do">Atras</a>
+		
 	</body>
 </html>
 

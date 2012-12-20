@@ -66,6 +66,31 @@ public class PedidosServer {
 		return cl;
 	}
 
+	public void deleteCategoria(Categoria ca) {
+		// TODO Auto-generated method stub
+		dao.delete(ca);
+	}
+
+	public Item buscarItem(Integer idItem) {
+		// TODO Auto-generated method stub
+		return (Item)dao.getObject(idItem, Item.class);
+	}
+
+	public void deleteItem(Item it) {
+		// TODO Auto-generated method stub
+		dao.delete(it);
+	}
+
+	public Cliente buscarCliente(Integer idCli) {
+		// TODO Auto-generated method stub
+		return (Cliente)dao.getObject(idCli, Cliente.class);
+	}
+
+	public void deleteCliente(Cliente cl) {
+		// TODO Auto-generated method stub
+		dao.delete(cl);
+	}
+
 	
 	
 	

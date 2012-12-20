@@ -72,4 +72,14 @@ public class ClienteAction extends MappingDispatchAction {
 		System.out.println("guardarCliente");
 		return mapping.findForward(fwd);
 	}
+	
+	public ActionForward deleteCliente(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response) {
+		String fwd = "goShow";
+		PedidosServer pserver = new PedidosServer();
+		Cliente cl = pserver.buscarCliente(new Integer(request.getParameter("id")));
+		pserver.deleteCliente(cl);
+		System.out.println("deleteCliente");
+		return mapping.findForward(fwd);
+	}
 }

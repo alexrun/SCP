@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionMessage;
 
 /** 
  * MyEclipse Struts
@@ -57,7 +58,27 @@ public class ClienteForm extends ActionForm {
 	public ActionErrors validate(ActionMapping mapping,
 			HttpServletRequest request) {
 		// TODO Auto-generated method stub
-		return null;
+		ActionErrors errores= new ActionErrors();
+		if(nombre==null || nombre.equals("")){
+			errores.add("nombre",new ActionMessage("empty.nombre"));
+		}
+		if(apellido==null || apellido.equals("")){
+			errores.add("apellido",new ActionMessage("empty.apellido"));
+		}
+		if(cedula==null || cedula.equals("")){
+			errores.add("cedula",new ActionMessage("empty.cedula"));
+		}
+		if(telefonos==null || telefonos.equals("")){
+			errores.add("telefono",new ActionMessage("empty.telefono"));
+		}
+		if(ciudad==null || ciudad.equals("")){
+			errores.add("ciudad",new ActionMessage("empty.ciudad"));
+		}
+		if(direccion==null || direccion.equals("")){
+			errores.add("direccion",new ActionMessage("empty.direccion"));
+		}
+		
+		return errores;
 	}
 
 	/** 

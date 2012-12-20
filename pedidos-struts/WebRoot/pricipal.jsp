@@ -25,13 +25,19 @@ request.setAttribute("path",path);
     <h1>BIENVENIDO AL SISTEMAS DE GESTION DE PEDIDOS</h1><br>Seleccione una Opci&oacute;n:<br>
     <br><div align="center">
     <br>
-    <a href="./newCategoria.do">CATEGORIA</a>&nbsp; 
-    <br>
+  	<a href="./newCategoria.do">CATEGORIA</a>&nbsp; <br>
     <a href="./showCategoria.do">TODAS</a> <br>&nbsp;<br>
-    <a href="./newItem.do">ITEM</a>
-     <br><a href="./showItem.do">TODOS</a>
-     <br><br> 
-     <a href="./newCliente.do">CLIENTE</a><br>
-     <a href="./showCliente.do">TODOS</a><br><br>PEDIDO <br>TODOS</div>
+    
+    <a href="./newItem.do">ITEM</a><br>
+    <a href="./showItem.do">TODOS</a>
+    <br><br> 
+     
+    <a href="./newCliente.do">CLIENTE</a><br>
+    <a href="./showCliente.do">TODOS</a><br>
+     
+     <br>PEDIDO 
+     <br>TODOS<br>
+     <br>PAGOS 
+     <br>TODOS</div>
   </body>
 </html>

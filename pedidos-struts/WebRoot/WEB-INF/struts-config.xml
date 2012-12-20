@@ -20,12 +20,8 @@
       <forward name="goNew" path="/form/newCategoria.jsp" />
     </action>
     <action
-      attribute="categoriaForm"
-      input="/form/showCategoria.jsp"
-      name="categoriaForm"
       parameter="showCategoria"
       path="/showCategoria"
-      scope="request"
       type="pedidos.struts.action.CategoriaAction"
       cancellable="true">
       <forward name="goShow" path="/form/showCategoria.jsp" />
@@ -40,7 +36,7 @@
     </action>
     <action
       attribute="CategoriaForm"
-      input="/form/newCategoria.jsp"
+      input="/newCategoria.do"
       name="categoriaForm"
       parameter="guardarCategoria"
       path="/guardarCategoria"
@@ -58,7 +54,7 @@
     </action>
     <action
       attribute="itemForm"
-      input="/form/newItem.jsp"
+      input="/newItem.do"
       name="itemForm"
       parameter="guardarItem"
       path="/guardarItem"
@@ -68,19 +64,15 @@
       <forward name="goShow" path="/showItem.do" />
     </action>
     <action
-      attribute="itemForm"
-      input="/form/showItem.jsp"
-      name="itemForm"
       parameter="showItem"
       path="/showItem"
-      scope="request"
       type="pedidos.struts.action.ItemAction"
       cancellable="true">
       <forward name="goShow" path="/form/showItem.jsp" />
     </action>
     <action
       attribute="clienteForm"
-      input="/form/newCliente.jsp"
+      input="/newCliente.do"
       name="clienteForm"
       parameter="guardarCliente"
       path="/guardarCliente"
@@ -98,16 +90,57 @@
     </action>
     <action
       attribute="clienteForm"
-      input="/form/showCliente.jsp"
-      name="clienteForm"
       parameter="showCliente"
       path="/showCliente"
-      scope="request"
       type="pedidos.struts.action.ClienteAction"
       validate="false"
       cancellable="true">
       <forward name="goShow" path="/form/showCliente.jsp" />
     </action>
+    <action
+      input="/form/showCategoria.jsp"
+      parameter="deleteCategoria"
+      path="/deleteCategoria"
+      type="pedidos.struts.action.CategoriaAction"
+      cancellable="true">
+      <forward name="goShow" path="/showCategoria.do" />
+    </action>
+    <action
+      input="/form/showItem.jsp"
+      parameter="deleteItem"
+      path="/deleteItem"
+      type="pedidos.struts.action.ItemAction"
+      cancellable="true">
+      <forward name="goShow" path="/showItem.do" />
+    </action>
+    <action
+      input="/form/showCliente.jsp"
+      parameter="deleteCliente"
+      path="/deleteCliente"
+      type="pedidos.struts.action.ClienteAction"
+      cancellable="true">
+      <forward name="goShow" path="/showCliente.do" />
+    </action>
+    <action
+      parameter="newPedido"
+      path="/newPedido"
+      type="pedidos.struts.action.PedidoAction"
+      cancellable="true" />
+    <action
+      parameter="guardarPedido"
+      path="/guardarPedido"
+      type="pedidos.struts.action.PedidoAction"
+      cancellable="true" />
+    <action
+      parameter="showPedido"
+      path="/showPedido"
+      type="pedidos.struts.action.PedidoAction"
+      cancellable="true" />
+    <action
+      parameter="deletePedido"
+      path="/deletePedido"
+      type="pedidos.struts.action.PedidoAction"
+      cancellable="true" />
 
   </action-mappings>
 

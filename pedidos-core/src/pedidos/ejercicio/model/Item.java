@@ -59,6 +59,7 @@ public class Item  implements java.io.Serializable {
          this.descripcion = descripcion;
          this.precioCompra = precioCompra;
          this.precioVenta = precioVenta;
+         this.imagenUrl = imagenUrl;
 	}  
    
 

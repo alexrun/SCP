@@ -43,7 +43,6 @@ public class CategoriaAction extends MappingDispatchAction {
 	
 	public ActionForward showCategoria(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response) {
-		//CategoriaForm newCategoriaForm = (CategoriaForm) form;// TODO Auto-generated method stub
 		String fwd = "goShow";
 		PedidosServer pserver = new PedidosServer();
 		request.setAttribute("categorias", pserver.listarCategorias());
@@ -65,5 +64,16 @@ public class CategoriaAction extends MappingDispatchAction {
 		return mapping.findForward(fwd);
 	}
 	
+	
+	public ActionForward deleteCategoria(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response) {
+		String fwd = "goShow";
+		PedidosServer pserver = new PedidosServer();
+		Categoria ca = pserver.buscarCategoria(new Integer(request.getParameter("id")));
+		
+		pserver.deleteCategoria(ca);
+		System.out.println("deleteCategoria");
+		return mapping.findForward(fwd);
+	}
 	
 }

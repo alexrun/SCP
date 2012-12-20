@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionMessage;
 
 /** 
  * MyEclipse Struts
@@ -48,7 +49,14 @@ public class CategoriaForm extends ActionForm {
 	public ActionErrors validate(ActionMapping mapping,
 			HttpServletRequest request) {
 		// TODO Auto-generated method stub
-		return null;
+		ActionErrors errores= new ActionErrors();
+		if(nombre==null || nombre.equals("")){
+			errores.add("nombre",new ActionMessage("empty.nombre"));
+		}
+		if(descripcion==null || descripcion.equals("")){
+			errores.add("descripcion",new ActionMessage("empty.descripcion"));
+		}		
+		return errores;
 	}
 
 	/** 
