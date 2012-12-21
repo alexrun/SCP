@@ -43,7 +43,8 @@ public class ItemForm extends ActionForm {
 
 	/** precioCompra property */
 	private Double precioCompra;
-
+	
+	/** categoria property */
 	private Integer categoria;
 
 	/*

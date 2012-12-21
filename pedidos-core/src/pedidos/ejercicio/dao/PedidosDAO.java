@@ -6,6 +6,7 @@ import java.util.List;
 
 import pedidos.ejercicio.model.Categoria;
 import pedidos.ejercicio.model.Cliente;
+import pedidos.ejercicio.model.FormaPago;
 import pedidos.ejercicio.model.Item;
 import pedidos.ejercicio.model.Pedidos;
 
@@ -72,6 +73,34 @@ public class PedidosDAO extends BaseDAO {
 		List<Object> lista =
 			executeNamedQuery("listAllClientesByCiudad", params);
 		return (ArrayList<Cliente>)((List<?>)lista);
+	}
+
+	@SuppressWarnings("unchecked")
+	public ArrayList<FormaPago> listarPagos() {
+		// TODO Auto-generated method stub
+		List<Object> lista =
+			executeNamedQuery("listAllFormaPago", null);
+		return (ArrayList<FormaPago>)((List<?>)lista);
+	}
+
+	@SuppressWarnings("unchecked")
+	public ArrayList<Pedidos> listarPedidosByCliente(Integer id) {
+		// TODO Auto-generated method stub
+		HashMap<String,Object> params = new HashMap<String,Object>();
+		params.put("cliente", id);
+		List<Object> lista =
+			executeNamedQuery("listAllPedidosByCliente", params);
+		return (ArrayList<Pedidos>)((List<?>)lista);
+	}
+
+	@SuppressWarnings("unchecked")
+	public ArrayList<Pedidos> listarPedidosByEstatus(String status) {
+		// TODO Auto-generated method stub
+		HashMap<String,Object> params = new HashMap<String,Object>();
+		params.put("estatus", status);
+		List<Object> lista =
+			executeNamedQuery("listAllPedidosByEstatus", params);
+		return (ArrayList<Pedidos>)((List<?>)lista);
 	}
 	
 	

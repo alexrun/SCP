@@ -7,6 +7,7 @@
     <form-bean name="itemForm" type="pedidos.struts.form.ItemForm" />
     <form-bean name="clienteForm" type="pedidos.struts.form.ClienteForm" />
     <form-bean name="pedidoForm" type="pedidos.struts.form.PedidoForm" />
+    <form-bean name="pagoForm" type="pedidos.struts.form.PagoForm" />
   </form-beans>
 
   <global-exceptions />
@@ -155,6 +156,40 @@
       type="pedidos.struts.action.PedidoAction"
       cancellable="true">
       <forward name="goShow" path="/showPedido.do" />
+    </action>
+    <action
+      parameter="showPago"
+      path="/showPago"
+      type="pedidos.struts.action.PagoAction"
+      cancellable="true">
+      <forward name="goShow" path="/form/showPago.jsp" />
+    </action>
+    <action
+      attribute="pagoForm"
+      input="/newPago.do"
+      name="pagoForm"
+      parameter="guardarPago"
+      path="/guardarPago"
+      scope="request"
+      type="pedidos.struts.action.PagoAction"
+      cancellable="true">
+      <forward name="goShow" path="/showPago.do" />
+    </action>
+    <action
+      attribute="newPagoForm"
+      parameter="newPago"
+      path="/newPago"
+      type="pedidos.struts.action.PagoAction"
+      cancellable="true">
+      <forward name="goNew" path="/form/newPago.jsp" />
+    </action>
+    <action
+      input="/form/showPago.jsp"
+      parameter="deletePago"
+      path="/deletePago"
+      type="pedidos.struts.action.PagoAction"
+      cancellable="true">
+      <forward name="goShow" path="/showPago.do" />
     </action>
     
     

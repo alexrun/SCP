@@ -47,7 +47,7 @@ public class PedidoAction extends MappingDispatchAction {
 		PedidosServer pserver = new PedidosServer();
 		request.setAttribute("clientes", pserver.listarClientes());
 		request.setAttribute("items", pserver.listarItems());
-		System.out.println("newPedido");
+		System.out.println("newPedido");	
 		return mapping.findForward(fwd);
 	}
 	
@@ -56,6 +56,19 @@ public class PedidoAction extends MappingDispatchAction {
 		String fwd = "goShow";
 		PedidosServer pserver = new PedidosServer();
 		request.setAttribute("pedidos", pserver.listarPedidos());
+		
+		
+		if (request.getParameter("cbCliente")!=null){
+			Integer id = new Integer(request.getParameter("cbCliente"));			
+			request.setAttribute("pedidos", pserver.listarPedidosByCliente(id));	
+			System.out.println("ID CLIENTE showPedido : " + id);
+		}else if (request.getParameter("cbEstatus")!=null){
+			String status = request.getParameter("cbEstatus");			
+			request.setAttribute("pedidos", pserver.listarPedidosByEstatus(status));	
+			System.out.println("ID ESTATUS showPedido : " + status);
+		}else{
+			request.setAttribute("pedidos", pserver.listarPedidos());
+		}
 		
 		System.out.println("showPedido");
 		return mapping.findForward(fwd);

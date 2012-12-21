@@ -22,61 +22,132 @@ request.setAttribute("path",path);
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
+	
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+    <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="/resources/demos/style.css" />
+         
+	<script type="text/javascript" src="${path}/js/funciones.js"></script>
+	
   </head>
   
   <body> 
-    <h1>BIENVENIDO AL SISTEMAS DE GESTION DE PEDIDOS</h1><h3>Seleccione una Opci&oacute;n:</h3>
-    <div align="center">
-    CATEGORIA<br>
-  	<a href="./newCategoria.do">Nueva</a><br>  	
-    <a href="./showCategoria.do">Todas</a><br><br>
+  
+  	<div align="center"><h1>BIENVENIDO AL SISTEMAS DE GESTION DE PEDIDOS</h1></div>
     
-    ITEM<br>    
-    <a href="./newItem.do">Nuevo</a><br>
-    <a href="./showItem.do">Todos</a><br>
-    <form action="./showItem.do" method="post"> 
-  		Categoria :
-  		<select name="cbCategoria">
-			 <c:forEach var="cat" items="${categorias}">
-             	<option value = "${cat.id}">${cat.nombre}</option>
-             </c:forEach>
-		</select>
-  		<button type="submit">
-               <p><img alt="" src="img/ok.png" height="15"></p>
-        </button> 
-	</form>
-        
-    <br>CLIENTE<br>      
-    <a href="./newCliente.do">Nuevo</a><br>
-    <a href="./showCliente.do">Todos</a><br>
-    <form action="./showCliente.do" method="post"> 
-  		Cedula :
-  		<select name="cbCedula">
-			 <c:forEach var="cli" items="${clientes}">
-             	<option value = "${cli.id}">${cli.cedula}</option>
-             </c:forEach>
-		</select>
-  		<button type="submit">
-               <p><img alt="" src="img/ok.png" height="15"></p>
-        </button> 
-	</form>
-    <form action="./showCliente.do" method="post"> 
-  		Ciudad :
-  		<select name="cbCiudad">
-			 <c:forEach var="cli" items="${clientes}">
-             	<option value = "${cli.id}">${cli.ciudad}</option>
-             </c:forEach>
-		</select>
-  		<button type="submit">
-               <p><img alt="" src="img/ok.png" height="15"></p>
-        </button> 
-	</form><br>
+         
+     <div id="accordion" align="center">
+     	<div class="group">
+    	<h3>Categoria</h3>
+    	<div>
+       		<p>
+        	<a href="./newCategoria.do">Agregar Nueva Categoria</a><br><br>  	
+    		<a href="./showCategoria.do">Ver Todas las Categorias</a><br><br>
+        	</p>
+    	</div>
+    	</div>
+    	<div class="group">
+    	<h3>Item</h3>
+    	<div>
+        	<p>
+        	<a href="./newItem.do">Agregar Nuevo Item</a><br><br>
+    		<a href="./showItem.do">Ver Todos los Items</a><br><br>
+    		</p>
+    		<form action="./showItem.do" method="post"> 
+  				Buscar Items por Categoria :
+  				<select name="cbCategoria">
+			 		<c:forEach var="cat" items="${categorias}">
+             			<option value = "${cat.id}">${cat.nombre}</option>
+             		</c:forEach>
+				</select>
+  				<button type="submit">
+               		<p><img alt="" src="img/ok.png" height="20"></p>
+        		</button> 
+			</form>
+    		
+        	
+    	</div>
+    	</div>
+    	<div class="group">
+    	<h3>Cliente</h3>
+    	<div>
+        	<p>
+        		<a href="./newCliente.do">Agregar Nuevo Cliente</a><br><br>
+    			<a href="./showCliente.do">Mostrar Todos los Clientes</a><br><br>
+        	</p>
+        	
+        	<form action="./showCliente.do" method="post">
+        	
+        	Buscar Cliente por Cedula :
+        	<select name="cbCedula">
+				<c:forEach var="cli" items="${clientes}">
+             		<option value = "${cli.cedula}">${cli.cedula}</option>
+             	</c:forEach>
+			</select>
+  			<button type="submit">
+               	<p><img alt="" src="img/ok.png" height="20"></p>
+        	</button> 
+        	
+			</form>
+    		<form action="./showCliente.do" method="post"> 
+  			Buscar Cliente por Ciudad :
+  			<select name="cbCiudad">
+			 	<c:forEach var="cli" items="${clientes}">
+             		<option value = "${cli.ciudad}">${cli.ciudad}</option>
+             	</c:forEach>
+			</select>
+  			<button type="submit">
+               	<p><img alt="" src="img/ok.png" height="20"></p>
+        	</button> 
+			</form>
+    	</div>
+    	</div>
+    	<div class="group">
+    	<h3>Pedido</h3>
+    	<div>
+        	<p>
+        		<a href="./newPedido.do">Agregar Nuevo Pedido</a><br><br>
+    			<a href="./showPedido.do">Mostrar Todos los Pedidos</a><br><br>
+        	</p>        	
+        	<form action="./showPedido.do" method="post">
+        	Buscar Pedidos por Cliente :
+        	<select name="cbCliente">
+				<c:forEach var="cli" items="${clientes}">
+             		<option value = "${cli.id}">${cli.nombre} ${cli.apellido}</option>
+             	</c:forEach>
+			</select>
+  			<button type="submit">
+               	<p><img alt="" src="img/ok.png" height="20"></p>
+        	</button> 
+        	</form>
+        	<form action="./showPedido.do" method="post">
+        	Buscar Pedidos por Estatus :
+        	<select name="cbEstatus">
+				<c:forEach var="ped" items="${pedidos}">
+             		<option value = "${ped.estatus}">${ped.estatus}</option>
+             	</c:forEach>
+			</select>
+  			<button type="submit">
+               	<p><img alt="" src="img/ok.png" height="20"></p>
+        	</button> 
+        	</form>
+    	</div>
+    	</div>
+    	<div class="group">
+    	<h3>Pago</h3>
+    	<div>       	
+        	<p>
+        		<a href="./newPago.do">Agregar Nuevo Pago</a><br><br>
+    			<a href="./showPago.do">Mostrar Todos los Pagos</a><br><br>
+        	</p> 
+    	</div>
+    	</div>
+	</div>
      
      
-    <a href="./newPedido.do">PEDIDO</a><br>
-    <a href="./showPedido.do">TODOS</a><br>
      
-     <br>PAGOS 
-     <br>TODOS</div>
+     
+     
   </body>
 </html>

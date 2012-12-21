@@ -2,7 +2,7 @@
 <FlowViewLayout Version="1.2">
   <StrutsActivity path="/newCategoria.do" location="240,435" dimension="241,76" />
   <StrutsActivity path="/showCategoria.do" location="240,225" dimension="241,76" />
-  <StrutsActivity path="/principal.do" location="1020,435" dimension="240,76" />
+  <StrutsActivity path="/principal.do" location="1245,225" dimension="240,76" />
   <StrutsActivity path="/guardarCategoria.do" location="240,330" dimension="241,76" />
   <StrutsActivity path="/newItem.do" location="495,435" dimension="256,76" />
   <StrutsActivity path="/guardarItem.do" location="495,330" dimension="256,76" />
@@ -19,21 +19,38 @@
   <StrutsActivity path="/deletePedido.do" location="765,30" dimension="241,76" />
   <StrutsActivity path="/form/newCategoria.jsp" location="285,540" dimension="166,51" />
   <StrutsActivity path="/form/showCategoria.jsp" location="285,135" dimension="166,51" />
-  <StrutsActivity path="/pricipal.jsp" location="1065,345" dimension="166,51" />
+  <StrutsActivity path="/pricipal.jsp" location="1290,135" dimension="166,51" />
   <StrutsActivity path="/form/newItem.jsp" location="540,540" dimension="136,51" />
   <StrutsActivity path="/form/showItem.jsp" location="555,135" dimension="166,51" />
   <StrutsActivity path="/form/newCliente.jsp" location="30,540" dimension="166,51" />
   <StrutsActivity path="/form/showCliente.jsp" location="30,135" dimension="166,51" />
   <StrutsActivity path="/form/newPedido.jsp" location="810,540" dimension="143,51" />
   <StrutsActivity path="/form/showPedido.jsp" location="825,135" dimension="150,49" />
+  <StrutsActivity path="/showPago.do" location="1020,225" dimension="214,76" />
+  <StrutsActivity path="/guardarPago.do" location="1020,330" dimension="214,76" />
+  <StrutsActivity path="/newPago.do" location="1020,435" dimension="214,76" />
+  <StrutsActivity path="/form/newPago.jsp" location="1065,540" dimension="133,51" />
+  <StrutsActivity path="/deletePago.do" location="1020,30" dimension="214,76" />
+  <StrutsActivity path="/form/showPago.jsp" location="1065,135" dimension="150,46" />
   <StrutsTransition id="/showItem.do,goShow,/form/showItem.jsp,1" routingType="1">
     <Bendpoints />
+  </StrutsTransition>
+  <StrutsTransition id="/guardarPago.do,goShow,/showPago.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1127,330" />
+      <AbsolutePoint location="1127,301" />
+    </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/newItem.do,goNew,/form/newItem.jsp,1" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="608,511" />
       <AbsolutePoint location="608,540" />
     </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/form/showPago.jsp,null,/deletePago.do,2" routingType="1">
+    <Bendpoints>
+      <Point rDim1="0,-38" rDim2="13,52" />
+    </Bendpoints>
   </StrutsTransition>
   <StrutsTransition id="/form/showCliente.jsp,null,/deleteCliente.do,2" routingType="0">
     <AutomaticBendpoints>
@@ -46,11 +63,10 @@
       <Point rDim1="-105,97" rDim2="-105,-98" />
     </Bendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/form/showItem.jsp,null,/deleteItem.do,2" routingType="0">
-    <AutomaticBendpoints>
-      <AbsolutePoint location="623,135" />
-      <AbsolutePoint location="623,106" />
-    </AutomaticBendpoints>
+  <StrutsTransition id="/form/showItem.jsp,null,/deleteItem.do,2" routingType="1">
+    <Bendpoints>
+      <Point rDim1="-8,-40" rDim2="7,52" />
+    </Bendpoints>
   </StrutsTransition>
   <StrutsTransition id="/guardarCliente.do,goShow,/showCliente.do,1" routingType="0">
     <AutomaticBendpoints>
@@ -62,7 +78,9 @@
     <Bendpoints />
   </StrutsTransition>
   <StrutsTransition id="/showCategoria.do,goShow,/form/showCategoria.jsp,1" routingType="1">
-    <Bendpoints />
+    <Bendpoints>
+      <Point rDim1="0,-53" rDim2="-8,50" />
+    </Bendpoints>
   </StrutsTransition>
   <StrutsTransition id="/deleteItem.do,goShow,/showItem.do,1" routingType="1">
     <Bendpoints>
@@ -80,10 +98,21 @@
       <AbsolutePoint location="881,540" />
     </AutomaticBendpoints>
   </StrutsTransition>
+  <StrutsTransition id="/deletePago.do,goShow,/showPago.do,1" routingType="1">
+    <Bendpoints>
+      <Point rDim1="-92,97" rDim2="-92,-98" />
+    </Bendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/form/newPago.jsp,null,/newPago.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1127,540" />
+      <AbsolutePoint location="1127,511" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
   <StrutsTransition id="/principal.do,goMenu,/pricipal.jsp,1" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="1148,435" />
-      <AbsolutePoint location="1148,396" />
+      <AbsolutePoint location="1373,225" />
+      <AbsolutePoint location="1373,186" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/newCliente.do,goNew,/form/newCliente.jsp,1" routingType="0">
@@ -96,6 +125,12 @@
     <AutomaticBendpoints>
       <AbsolutePoint location="360,330" />
       <AbsolutePoint location="360,301" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/newPago.do,goNew,/form/newPago.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1131,511" />
+      <AbsolutePoint location="1131,540" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/guardarItem.do,goShow,/showItem.do,1" routingType="0">
@@ -128,11 +163,10 @@
       <AbsolutePoint location="360,406" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/form/showPedido.jsp,null,/deletePedido.do,2" routingType="0">
-    <AutomaticBendpoints>
-      <AbsolutePoint location="885,135" />
-      <AbsolutePoint location="885,106" />
-    </AutomaticBendpoints>
+  <StrutsTransition id="/form/showPedido.jsp,null,/deletePedido.do,2" routingType="1">
+    <Bendpoints>
+      <Point rDim1="0,-39" rDim2="15,52" />
+    </Bendpoints>
   </StrutsTransition>
   <StrutsTransition id="/form/showCategoria.jsp,null,/deleteCategoria.do,2" routingType="0">
     <AutomaticBendpoints>
@@ -146,6 +180,9 @@
       <AbsolutePoint location="885,406" />
     </AutomaticBendpoints>
   </StrutsTransition>
+  <StrutsTransition id="/showPago.do,goShow,/form/showPago.jsp,1" routingType="1">
+    <Bendpoints />
+  </StrutsTransition>
   <StrutsTransition id="/deleteCliente.do,goShow,/showCliente.do,1" routingType="1">
     <Bendpoints>
       <Point rDim1="-104,95" rDim2="-105,-98" />
@@ -157,8 +194,16 @@
       <AbsolutePoint location="623,406" />
     </AutomaticBendpoints>
   </StrutsTransition>
+  <StrutsTransition id="/newPago.do,null,/guardarPago.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1127,435" />
+      <AbsolutePoint location="1127,406" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
   <StrutsTransition id="/showCliente.do,goShow,/form/showCliente.jsp,1" routingType="1">
-    <Bendpoints />
+    <Bendpoints>
+      <Point rDim1="0,-53" rDim2="-8,50" />
+    </Bendpoints>
   </StrutsTransition>
 </FlowViewLayout>
 

@@ -13,11 +13,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 request.setAttribute("path",path);
 %>
 
+
 <html>
-  
   <head>
-		<title>Lista de Pedidos</title>
-		<link rel="stylesheet" type="text/css" href="${path}/css/displaytag.css">
+    <html:base />
+    
+    <title>Lista de Pagos</title>
+
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+	<!--
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	-->
+	
+	<link rel="stylesheet" type="text/css" href="${path}/css/displaytag.css">
 		<style>
 			#pedidos
 			{
@@ -40,38 +52,37 @@ request.setAttribute("path",path);
 				color:white;
 			}
 		</style>
-	</head>
+
+  </head>
   
   <body>
+    <h2>Listado de Pagos</h2>
     
-    <h2>Listado de Pedidos</h2>
- 
-    
-    <c:choose>
-      <c:when test="${not empty pedidos}">
+      <c:choose>
+      <c:when test="${not empty pagos}">
       
-      	<table id="pedidos">
+      	<table id="pagos">
 			<tbody>
                <tr>                       
                        <td align="center" bgColor="#57b031"><font size="4"><strong><font color="#ffffff">Id</font></strong></font></td>
-                       <td align="center" bgColor="#57b031"><font size="4"><strong><font color="#ffffff">Cliente</font></strong></font></td>
+                       <td align="center" bgColor="#57b031"><font size="4"><strong><font color="#ffffff">Propietario</font></strong></font></td>
                        <td align="center" bgColor="#57b031"><font size="4"><strong><font color="#ffffff">Fecha</font></strong></font></td>
-                       <td align="center" bgColor="#57b031"><font size="4"><strong><font color="#ffffff">Estatus</font></strong></font></td>                             
+                       <td align="center" bgColor="#57b031"><font size="4"><strong><font color="#ffffff">Monto</font></strong></font></td>                             
                        <td align="center" bgColor="#57b031"><font size="4"><strong><font color="#ffffff">Opcion</font></strong></font></td>             
                </tr>
                
-               <c:forEach var="pe" items="${pedidos}">                
+               <c:forEach var="pa" items="${pagos}">                
                        <tr>
-                               <td align="center"> ${pe.id}</td>
-                               <td align="center"> ${pe.cliente.nombre}</td>
-                               <td align="center"> ${pe.fecha}</td>
-                               <td align="center"> ${pe.estatus}</td>                               
+                               <td align="center"> ${pa.id}</td>
+                               <td align="center"> ${pa.propietario}</td>
+                               <td align="center"> ${pa.fechaPago}</td>
+                               <td align="center"> ${pa.monto}</td>                               
                                <td align="center">
-                               		<form action="${path}/deletePedido.do" method="post">
+                               		<form action="${path}/deletePago.do" method="post">
                                			<button type="submit">
-                               				<p><img alt="" src="img/nok.png" height="25"></p>
+                               				<p><img alt="" src="${path}/img/nok.png" height="25"></p>
                                			</button>
-                               			<input type="hidden" value="${pe.id}" name="id">
+                               			<input type="hidden" value="${pa.id}" name="id">
                                		</form>
                                </td>
                        </tr>
@@ -81,7 +92,7 @@ request.setAttribute("path",path);
       	
       </c:when>
       <c:otherwise>
-      	No se encontraron registros de Pedidos.<br/><br/>
+      	No se encontraron registros de Pagos.<br/><br/>
       </c:otherwise>
 	</c:choose>   
 		

@@ -15,6 +15,10 @@
         </id>
         
         <!-- Defino las propiedades de la clase Padre FormaPago-->
+        
+        <many-to-one name="pedidos" class="pedidos.ejercicio.model.Pedidos" fetch="select">
+           <column name="PEDIDO_REF" not-null="true" />
+       </many-to-one>        
         <property name="propietario" type="java.lang.String">
             <column name="PROPIETARIO" length="20" not-null="true" />
         </property>

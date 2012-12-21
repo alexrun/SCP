@@ -19,10 +19,10 @@ public class FormaPago  implements java.io.Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private Integer id;
-     private Pedidos pedidos;
-     private String propietario;
-     private Date fechaPago;
-     private Double monto;
+    private Pedidos pedidos;
+    private String propietario;
+    private Date fechaPago;
+    private Double monto;
      @SuppressWarnings("unchecked")
 	private Set pagoCheques = new HashSet(0);
      @SuppressWarnings("unchecked")
@@ -56,7 +56,14 @@ public class FormaPago  implements java.io.Serializable {
    
     // Property accessors
 
-    public Integer getId() {
+    public FormaPago(Pedidos pedidos, String propietario, Double monto, Date fechaPago) {
+    	 this.pedidos = pedidos;
+         this.propietario = propietario;
+         this.fechaPago = fechaPago;
+         this.monto = monto;
+	}
+
+	public Integer getId() {
         return this.id;
     }
     

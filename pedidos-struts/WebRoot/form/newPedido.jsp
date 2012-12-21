@@ -21,6 +21,13 @@ request.setAttribute("path",path);
     	<link rel="stylesheet" href="/resources/demos/style.css" />
     	<script type="text/javascript" src="${path}/js/funciones.js"></script>
     	
+    	<style>
+    		.toggler { width: 500px; height: 200px; }
+    		#button { padding: .5em 1em; text-decoration: none; }
+    		#effect { width: 240px; height: 135px; padding: 0.4em; position: relative; }
+    		#effect h3 { margin: 0; padding: 0.4em; text-align: center; }
+    	</style>
+    	
 	</head>
 	<body>
 		<html:form action="/guardarPedido">
@@ -36,10 +43,10 @@ request.setAttribute("path",path);
 			Fecha : <html:text property="fecha" name="fecha" value="20/12/2012"></html:text><html:errors property="fecha"/><br>
 			
 			
-			<table>
+			<table align="center">
 				<tbody>
 					<tr>
-						<td align="center" width="500">
+						<td align="center" width="250">
 							Inventario Disponible<br>
 							<select multiple="multiple" size="5" name="listIt">
 								<c:forEach var="it" items="${items}">
@@ -47,7 +54,7 @@ request.setAttribute("path",path);
                 				</c:forEach>
 							</select>
 						</td>
-						<td align="center" width="300">
+						<td align="center" width="100">
 														
 				
 							
@@ -59,7 +66,7 @@ request.setAttribute("path",path);
                             </button><br>			
 							
 						</td >
-						<td align="center" width="500">
+						<td align="center" width="2500">
 							Inventario Pedido<br>
 							<select multiple="multiple" size="5" name="listSe" >
 							</select>
@@ -67,8 +74,24 @@ request.setAttribute("path",path);
 					</tr>
 				</tbody>
 			</table>
+			
+			
 
 			<br>		
+			
+			<div class="toggler">
+    			<div id="effect" class="ui-widget-content ui-corner-all">
+        			<h3 class="ui-widget-header ui-corner-all">Cantidad</h3>
+        			<p align="center"> 
+            			<input type="text" value="1" name="cantidad" align="middle">
+        			</p>
+    			</div>
+			</div>
+			
+			<a href="#" id="button" class="ui-state-default ui-corner-all">Run Effect</a>
+
+			<br>
+			
 			<html:submit value="Guardar"/><html:cancel value="Cancelar"/>
 			
 		</html:form>

@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 import pedidos.ejercicio.dao.PedidosDAO;
 import pedidos.ejercicio.model.Categoria;
+import pedidos.ejercicio.model.FormaPago;
 import pedidos.ejercicio.model.Item;
 import pedidos.ejercicio.model.Pedidos;
 import pedidos.ejercicio.model.Cliente;
@@ -116,6 +117,37 @@ public class PedidosServer {
 	public ArrayList<Cliente> listarClientesByCiudad(String ciu) {
 		// TODO Auto-generated method stub
 		return dao.listarClientesByCiudad(ciu);
+	}
+
+	public ArrayList<FormaPago> listarPagos() {
+		// TODO Auto-generated method stub
+		return dao.listarPagos();
+	}
+
+	public ArrayList<Pedidos> listarPedidosByCliente(Integer id) {
+		// TODO Auto-generated method stub
+		return dao.listarPedidosByCliente(id);
+	}
+
+	public ArrayList<Pedidos> listarPedidosByEstatus(String status) {
+		// TODO Auto-generated method stub
+		return dao.listarPedidosByEstatus(status);
+	}
+
+	public FormaPago crearPago(FormaPago pag) {
+		// TODO Auto-generated method stub
+		dao.save(pag);
+		return pag;
+	}
+
+	public FormaPago buscarPago(Integer idPago) {
+		// TODO Auto-generated method stub
+		return (FormaPago)dao.getObject(idPago, FormaPago.class);
+	}
+
+	public void deletePago(FormaPago pag) {
+		// TODO Auto-generated method stub
+		dao.delete(pag);
 	}
 
 		

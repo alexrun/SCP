@@ -12,7 +12,7 @@ request.setAttribute("path",path);
  
 <html> 
 	<head>
-		<title>JSP for ItemForm form</title>
+		<title>Nuevo Item</title>
 	</head>
 	<body>
 		<html:form action="/guardarItem"> 

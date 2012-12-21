@@ -41,6 +41,7 @@ public class PrincipalAction extends MappingDispatchAction {
 		PedidosServer pserver = new PedidosServer();
 		request.setAttribute("categorias", pserver.listarCategorias());
 		request.setAttribute("clientes", pserver.listarClientes());
+		request.setAttribute("pedidos", pserver.listarPedidos());
 		return mapping.findForward(fwd);
 	}
 	
