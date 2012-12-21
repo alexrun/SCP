@@ -49,12 +49,14 @@ public class ItemAction extends MappingDispatchAction {
 			HttpServletRequest request, HttpServletResponse response) {
 		String fwd = "goShow";
 		PedidosServer pserver = new PedidosServer();
-		request.setAttribute("items", pserver.listarItems());
+		
 		
 		if (request.getParameter("cbCategoria")!=null){
 			Integer idCat = new Integer( request.getParameter("cbCategoria"));		
 			request.setAttribute("items", pserver.listarItemByCategoria(idCat));	
 			System.out.println("ID CAT showItem getParameter" + idCat);
+		}else{
+			request.setAttribute("items", pserver.listarItems());
 		}
 		
 		System.out.println("showItem");

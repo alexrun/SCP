@@ -108,9 +108,14 @@ public class PedidosServer {
 		dao.delete(ped);
 	}
 
-	public Object listarClientesByCedula(String ced) {
+	public ArrayList<Cliente> listarClientesByCedula(String ced) {
 		// TODO Auto-generated method stub
-		return null;
+		return dao.listarClientesByCedula(ced);
+	}
+
+	public ArrayList<Cliente> listarClientesByCiudad(String ciu) {
+		// TODO Auto-generated method stub
+		return dao.listarClientesByCiudad(ciu);
 	}
 
 		

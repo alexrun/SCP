@@ -37,7 +37,7 @@
 	
 		<!--  Por Categoria -->
 	<query name="listAllItemsByCategoria">
-		from Item it where it.categoria =:idCategoria order by it.id
+		from Item it where it.categoria.id =:idCategoria order by it.id
 	</query> 
 	
 	<!--  Buscar Clientes -->
@@ -55,7 +55,7 @@
 	
 		<!--  Por Cliente -->
 	<query name="listAllPedidosByCliente">
-		from Pedidos pe where pe.cliente =:cliente order by pe.id
+		from Pedidos pe where pe.cliente.id =:cliente order by pe.id
 	</query> 
 	
 		<!--  Por Estatus -->

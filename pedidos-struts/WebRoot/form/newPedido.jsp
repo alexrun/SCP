@@ -20,8 +20,6 @@ request.setAttribute("path",path);
     	<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
     	<link rel="stylesheet" href="/resources/demos/style.css" />
     	<script type="text/javascript" src="${path}/js/funciones.js"></script>
-    	<script type="text/javascript"> 	
-    	</script>
     	
 	</head>
 	<body>
@@ -32,13 +30,13 @@ request.setAttribute("path",path);
                 			</c:forEach>
 						</html:select>
 						<html:errors property="cliente"/><br/>
-			Fecha : <input type="text" id="datepicker" align="middle" lang="es"/><br/>
+			Fecha : <input type="text" id="datepicker" lang="es"/><br/>
 			Estatus : <html:text property="estatus" value="Activo"/><html:errors property="estatus"/><br/>
 			
 			Fecha : <html:text property="fecha" name="fecha" value="20/12/2012"></html:text><html:errors property="fecha"/><br>
 			
 			
-			<table width="289" border="0" height="239">
+			<table>
 				<tbody>
 					<tr>
 						<td align="center" width="500">

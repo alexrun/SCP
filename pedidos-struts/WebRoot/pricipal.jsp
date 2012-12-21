@@ -51,7 +51,7 @@ request.setAttribute("path",path);
     <a href="./showCliente.do">Todos</a><br>
     <form action="./showCliente.do" method="post"> 
   		Cedula :
-  		<select name="cedula">
+  		<select name="cbCedula">
 			 <c:forEach var="cli" items="${clientes}">
              	<option value = "${cli.id}">${cli.cedula}</option>
              </c:forEach>
@@ -62,7 +62,7 @@ request.setAttribute("path",path);
 	</form>
     <form action="./showCliente.do" method="post"> 
   		Ciudad :
-  		<select name="ciudad">
+  		<select name="cbCiudad">
 			 <c:forEach var="cli" items="${clientes}">
              	<option value = "${cli.id}">${cli.ciudad}</option>
              </c:forEach>

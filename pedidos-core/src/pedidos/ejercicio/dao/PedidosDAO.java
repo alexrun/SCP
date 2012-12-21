@@ -53,6 +53,26 @@ public class PedidosDAO extends BaseDAO {
 			executeNamedQuery("listAllItemsByCategoria", params);
 		return (ArrayList<Item>)((List<?>)lista);
 	}
+
+	@SuppressWarnings("unchecked")
+	public ArrayList<Cliente> listarClientesByCedula(String ced) {
+		// TODO Auto-generated method stub
+		HashMap<String,Object> params = new HashMap<String,Object>();
+		params.put("cedula", ced);
+		List<Object> lista =
+			executeNamedQuery("listAllClientesByCedula", params);
+		return (ArrayList<Cliente>)((List<?>)lista);
+	}
+
+	@SuppressWarnings("unchecked")
+	public ArrayList<Cliente> listarClientesByCiudad(String ciu) {
+		// TODO Auto-generated method stub
+		HashMap<String,Object> params = new HashMap<String,Object>();
+		params.put("ciudad", ciu);
+		List<Object> lista =
+			executeNamedQuery("listAllClientesByCiudad", params);
+		return (ArrayList<Cliente>)((List<?>)lista);
+	}
 	
 	
 

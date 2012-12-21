@@ -48,12 +48,21 @@ public class ClienteAction extends MappingDispatchAction {
 		//CategoriaForm newCategoriaForm = (CategoriaForm) form;// TODO Auto-generated method stub
 		String fwd = "goShow";
 		PedidosServer pserver = new PedidosServer();
-		request.setAttribute("clientes", pserver.listarClientes());
-		if (request.getParameter("cliente")!=null){
-			String ced = request.getParameter("categoria");			
+		
+		
+		if (request.getParameter("cbCedula")!=null){
+			String ced = request.getParameter("cbCedula");			
 			request.setAttribute("clientes", pserver.listarClientesByCedula(ced));	
-			System.out.println("ID CED showCliente");
+			System.out.println("ID CEDULA showCliente : " + ced);
+		}else if (request.getParameter("cbCiudad")!=null){
+			String ciu = request.getParameter("cbCiudad");			
+			request.setAttribute("clientes", pserver.listarClientesByCiudad(ciu));	
+			System.out.println("ID CIUDAD showCliente : " + ciu);
+		}else{
+			request.setAttribute("clientes", pserver.listarClientes());
 		}
+		
+		
 		System.out.println("showCliente");
 		return mapping.findForward(fwd);
 	}
