@@ -32,8 +32,7 @@
       parameter="goMenu"
       path="/principal"
       type="pedidos.struts.action.PrincipalAction"
-      cancellable="true">
-      
+      cancellable="true">      
       <forward name="goMenu" path="/pricipal.jsp" />
     </action>
     <action

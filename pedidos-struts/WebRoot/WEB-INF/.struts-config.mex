@@ -17,6 +17,10 @@
   <StrutsActivity path="/guardarPedido.do" location="765,330" dimension="241,76" />
   <StrutsActivity path="/showPedido.do" location="765,225" dimension="241,76" />
   <StrutsActivity path="/deletePedido.do" location="765,30" dimension="241,76" />
+  <StrutsActivity path="/showPago.do" location="1020,225" dimension="214,76" />
+  <StrutsActivity path="/guardarPago.do" location="1020,330" dimension="214,76" />
+  <StrutsActivity path="/newPago.do" location="1020,435" dimension="214,76" />
+  <StrutsActivity path="/deletePago.do" location="1020,30" dimension="214,76" />
   <StrutsActivity path="/form/newCategoria.jsp" location="285,540" dimension="166,51" />
   <StrutsActivity path="/form/showCategoria.jsp" location="285,135" dimension="166,51" />
   <StrutsActivity path="/pricipal.jsp" location="1290,135" dimension="166,51" />
@@ -26,12 +30,8 @@
   <StrutsActivity path="/form/showCliente.jsp" location="30,135" dimension="166,51" />
   <StrutsActivity path="/form/newPedido.jsp" location="810,540" dimension="143,51" />
   <StrutsActivity path="/form/showPedido.jsp" location="825,135" dimension="150,49" />
-  <StrutsActivity path="/showPago.do" location="1020,225" dimension="214,76" />
-  <StrutsActivity path="/guardarPago.do" location="1020,330" dimension="214,76" />
-  <StrutsActivity path="/newPago.do" location="1020,435" dimension="214,76" />
-  <StrutsActivity path="/form/newPago.jsp" location="1065,540" dimension="133,51" />
-  <StrutsActivity path="/deletePago.do" location="1020,30" dimension="214,76" />
   <StrutsActivity path="/form/showPago.jsp" location="1065,135" dimension="150,46" />
+  <StrutsActivity path="/form/newPago.jsp" location="1065,540" dimension="133,51" />
   <StrutsTransition id="/showItem.do,goShow,/form/showItem.jsp,1" routingType="1">
     <Bendpoints />
   </StrutsTransition>
@@ -102,12 +102,6 @@
     <Bendpoints>
       <Point rDim1="-92,97" rDim2="-92,-98" />
     </Bendpoints>
-  </StrutsTransition>
-  <StrutsTransition id="/form/newPago.jsp,null,/newPago.do,2" routingType="0">
-    <AutomaticBendpoints>
-      <AbsolutePoint location="1127,540" />
-      <AbsolutePoint location="1127,511" />
-    </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/principal.do,goMenu,/pricipal.jsp,1" routingType="0">
     <AutomaticBendpoints>
