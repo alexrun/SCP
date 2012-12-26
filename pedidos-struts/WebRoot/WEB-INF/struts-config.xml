@@ -190,6 +190,12 @@
       cancellable="true">
       <forward name="goShow" path="/showPago.do" />
     </action>
+    <action
+      path="/prueba"
+      type="pedidos.struts.action.PruebaAction"
+      cancellable="true">
+      <forward name="OK" path="/pricipal.jsp" />
+    </action>
     
     
     
