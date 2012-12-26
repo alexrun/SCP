@@ -157,6 +157,16 @@ public class PedidosServer {
 		return detPed;
 	}
 
+	public ArrayList<DetallePedido> buscarDetallePedido(int idPedido) {
+		// TODO Auto-generated method stub
+		return dao.listarDetallePedidosByIdPedido(idPedido);
+	}
+
+	public void deleteDetallePedido(DetallePedido detPed) {
+		// TODO Auto-generated method stub
+		dao.delete(detPed);
+	}
+
 		
 	
 	

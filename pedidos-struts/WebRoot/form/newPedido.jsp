@@ -10,6 +10,8 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 request.setAttribute("path",path);
+
+List<String> listaIt = new ArrayList<String>();
 %>
  
 <html> 
@@ -58,18 +60,20 @@ request.setAttribute("path",path);
 														
 				
 							
-							<button type="button" onClick="move(this.form.listIt,this.form.listSe)">
+							<button type="button" onClick="move(this.form.listIt,this.form.listaItems)">
                             	<p><img alt="" src="img/Arrow Right.png" height="20"></p>
                             </button><br>
-                            <button type="button" onClick="move(this.form.listSe,this.form.listIt)">
+                            <button type="button" onClick="move(this.form.listaItems,this.form.listIt)">
                             	<p><img alt="" src="img/Arrow Left.png" height="20"></p>
                             </button><br>			
 							
 						</td >
-						<td align="center" width="2500">
+						<td align="center" width="250">
 							Inventario Pedido<br>
-							<select multiple="multiple" size="10" name="listSe" >
-							</select>
+														
+							<html:select multiple="true" property="listaItems" size="10" name="pedidoForm">
+							</html:select>
+							
 						</td>					
 					</tr>
 				</tbody>

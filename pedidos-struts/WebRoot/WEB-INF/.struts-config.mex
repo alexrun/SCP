@@ -32,6 +32,8 @@
   <StrutsActivity path="/form/showPedido.jsp" location="825,135" dimension="150,49" />
   <StrutsActivity path="/form/showPago.jsp" location="1065,135" dimension="150,46" />
   <StrutsActivity path="/form/newPago.jsp" location="1065,540" dimension="133,51" />
+  <StrutsActivity path="/form/prueba.jsp" location="1365,465" dimension="150,78" />
+  <StrutsActivity path="/prueba.do" location="1320,585" dimension="224,96" />
   <StrutsTransition id="/showItem.do,goShow,/form/showItem.jsp,1" routingType="1">
     <Bendpoints />
   </StrutsTransition>
@@ -39,6 +41,13 @@
     <AutomaticBendpoints>
       <AbsolutePoint location="1127,330" />
       <AbsolutePoint location="1127,301" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/prueba.do,OK,/pricipal.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1530,585" />
+      <AbsolutePoint location="1530,160" />
+      <AbsolutePoint location="1456,160" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/newItem.do,goNew,/form/newItem.jsp,1" routingType="0">
