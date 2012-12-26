@@ -16,6 +16,8 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.actions.MappingDispatchAction;
 
 import pedidos.ejercicio.model.Cliente;
+import pedidos.ejercicio.model.DetallePedido;
+import pedidos.ejercicio.model.Item;
 import pedidos.ejercicio.model.Pedidos;
 import pedidos.services.PedidosServer;
 import pedidos.struts.form.PedidoForm;
@@ -79,6 +81,9 @@ public class PedidoAction extends MappingDispatchAction {
 		PedidoForm newPedidoForm = (PedidoForm) form;
 		String fwd = "goShow";
 		PedidosServer pserver = new PedidosServer();	
+		
+		
+		
 		SimpleDateFormat formatoDelTexto = new SimpleDateFormat("dd/MM/yyyy");
 		
 		Date fecha = null;
@@ -94,7 +99,34 @@ public class PedidoAction extends MappingDispatchAction {
 		Pedidos ped = new Pedidos(cli,fecha,newPedidoForm.getEstatus());
 
 		pserver.crearPedido(ped);	
+		
+		
 		request.setAttribute("pedido", ped);
+		
+		
+		
+		//Guardar los detalles del pedido
+		//Cliente, Fecha, Items y Cantidad
+				
+		//Cual es la lista de items?
+		
+		//inicio Cliclo FALTA -----------------------------------------------
+				
+		int cant = 1;	
+		int idItem = 1; 		
+		
+		Item it = pserver.buscarItem(idItem);
+		double precio = cant*it.getPrecioVenta();		
+		DetallePedido detPed = new DetallePedido(it, ped, cant, precio);
+		
+		pserver.crearDetallePedido(detPed);
+				
+		//fin Ciclo FALTA ---------------------------------------------------
+				
+		
+		
+		
+		
 		System.out.println("guardarPedido");
 		return mapping.findForward(fwd);
 	}

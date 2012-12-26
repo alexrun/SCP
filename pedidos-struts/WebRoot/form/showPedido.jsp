@@ -56,7 +56,8 @@ request.setAttribute("path",path);
                        <td align="center" bgColor="#57b031"><font size="4"><strong><font color="#ffffff">Id</font></strong></font></td>
                        <td align="center" bgColor="#57b031"><font size="4"><strong><font color="#ffffff">Cliente</font></strong></font></td>
                        <td align="center" bgColor="#57b031"><font size="4"><strong><font color="#ffffff">Fecha</font></strong></font></td>
-                       <td align="center" bgColor="#57b031"><font size="4"><strong><font color="#ffffff">Estatus</font></strong></font></td>                             
+                       <td align="center" bgColor="#57b031"><font size="4"><strong><font color="#ffffff">Estatus</font></strong></font></td>            
+                       <td align="center" bgColor="#57b031"><font size="4"><strong><font color="#ffffff">Detalle</font></strong></font></td>                       
                        <td align="center" bgColor="#57b031"><font size="4"><strong><font color="#ffffff">Opcion</font></strong></font></td>             
                </tr>
                
@@ -65,7 +66,8 @@ request.setAttribute("path",path);
                                <td align="center"> ${pe.id}</td>
                                <td align="center"> ${pe.cliente.nombre}</td>
                                <td align="center"> ${pe.fecha}</td>
-                               <td align="center"> ${pe.estatus}</td>                               
+                               <td align="center"> ${pe.estatus}</td>       
+                               <td align="center"> Ver</td>                           
                                <td align="center">
                                		<form action="${path}/deletePedido.do" method="post">
                                			<button type="submit">

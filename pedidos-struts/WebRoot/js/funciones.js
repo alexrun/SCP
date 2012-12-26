@@ -181,4 +181,6 @@ $(function() {
         $( "#effect" ).hide();
     });	
 
+	 
+	 
 

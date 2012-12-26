@@ -30,6 +30,8 @@ request.setAttribute("path",path);
          
 	<script type="text/javascript" src="${path}/js/funciones.js"></script>
 	
+	
+
   </head>
   
   <body> 
@@ -94,6 +96,9 @@ request.setAttribute("path",path);
   			Buscar Cliente por Ciudad :
   			<select name="cbCiudad">
 			 	<c:forEach var="cli" items="${clientes}">
+			 				 	
+			 	
+			 		
              		<option value = "${cli.ciudad}">${cli.ciudad}</option>
              	</c:forEach>
 			</select>
@@ -146,7 +151,15 @@ request.setAttribute("path",path);
 	</div>
      
      
+     <script type="text/javascript">
      
+     var found = [];
+	$("select option").each(function() {
+  		if($.inArray(this.value, found) != -1) $(this).remove();
+  		found.push(this.value);
+	});
+     
+     </script>
      
      
   </body>

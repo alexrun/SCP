@@ -43,12 +43,12 @@ request.setAttribute("path",path);
 			Fecha : <html:text property="fecha" name="fecha" value="20/12/2012"></html:text><html:errors property="fecha"/><br>
 			
 			
-			<table align="center">
+			<table>
 				<tbody>
 					<tr>
 						<td align="center" width="250">
 							Inventario Disponible<br>
-							<select multiple="multiple" size="5" name="listIt">
+							<select multiple="multiple" size="10" name="listIt">
 								<c:forEach var="it" items="${items}">
                   	        		<option value = "${it.id}">${it.nombre}</option>
                 				</c:forEach>
@@ -68,7 +68,7 @@ request.setAttribute("path",path);
 						</td >
 						<td align="center" width="2500">
 							Inventario Pedido<br>
-							<select multiple="multiple" size="5" name="listSe" >
+							<select multiple="multiple" size="10" name="listSe" >
 							</select>
 						</td>					
 					</tr>
@@ -87,8 +87,7 @@ request.setAttribute("path",path);
         			</p>
     			</div>
 			</div>
-			
-			<a href="#" id="button" class="ui-state-default ui-corner-all">Run Effect</a>
+		
 
 			<br>
 			

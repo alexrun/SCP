@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 import pedidos.ejercicio.dao.PedidosDAO;
 import pedidos.ejercicio.model.Categoria;
+import pedidos.ejercicio.model.DetallePedido;
 import pedidos.ejercicio.model.FormaPago;
 import pedidos.ejercicio.model.Item;
 import pedidos.ejercicio.model.Pedidos;
@@ -148,6 +149,12 @@ public class PedidosServer {
 	public void deletePago(FormaPago pag) {
 		// TODO Auto-generated method stub
 		dao.delete(pag);
+	}
+
+	public DetallePedido crearDetallePedido(DetallePedido detPed) {
+		// TODO Auto-generated method stub
+		dao.save(detPed);
+		return detPed;
 	}
 
 		
