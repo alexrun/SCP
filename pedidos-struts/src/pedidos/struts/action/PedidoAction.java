@@ -6,7 +6,6 @@ package pedidos.struts.action;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
@@ -104,22 +103,7 @@ public class PedidoAction extends MappingDispatchAction {
 		
 		request.setAttribute("pedido", ped);
 		
-			
-
 		
-		String lista=newPedidoForm.getListaItems();
-		
-		System.out.println("lista: " + lista);
-		
-		
-		/*
-		List<String> listSe  =(List<String>) request.getAttribute("listSe");
-		if(listSe!=null){
-		for(int i=0;i<listSe.size()-1;i++){
-			System.out.println(listSe.get(i));
-		}
-		}
-		*/
 		
 		//Guardar los detalles del pedido
 		//Cliente, Fecha, Items y Cantidad
@@ -151,18 +135,7 @@ public class PedidoAction extends MappingDispatchAction {
 			HttpServletRequest request, HttpServletResponse response) {
 		String fwd = "goShow";
 		PedidosServer pserver = new PedidosServer();
-		
-		int idPedido = new Integer(request.getParameter("id"));
-		
-		ArrayList<DetallePedido> detPed = pserver.buscarDetallePedido(idPedido);
-		
-		for(int i=0;i<detPed.size()-1;i++){
-			pserver.deleteDetallePedido(detPed.get(i));
-		}
-		
-		
-		
-		Pedidos ped = pserver.buscarPedido(idPedido);
+		Pedidos ped = pserver.buscarPedido(new Integer(request.getParameter("id")));
 		pserver.deletePedido(ped);
 		System.out.println("deletePedido");
 		return mapping.findForward(fwd);

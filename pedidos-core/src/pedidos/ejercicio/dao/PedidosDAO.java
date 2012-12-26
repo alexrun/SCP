@@ -6,7 +6,6 @@ import java.util.List;
 
 import pedidos.ejercicio.model.Categoria;
 import pedidos.ejercicio.model.Cliente;
-import pedidos.ejercicio.model.DetallePedido;
 import pedidos.ejercicio.model.FormaPago;
 import pedidos.ejercicio.model.Item;
 import pedidos.ejercicio.model.Pedidos;
@@ -102,16 +101,6 @@ public class PedidosDAO extends BaseDAO {
 		List<Object> lista =
 			executeNamedQuery("listAllPedidosByEstatus", params);
 		return (ArrayList<Pedidos>)((List<?>)lista);
-	}
-
-	@SuppressWarnings("unchecked")
-	public ArrayList<DetallePedido> listarDetallePedidosByIdPedido(int idPedido) {
-		// TODO Auto-generated method stub
-		HashMap<String,Object> params = new HashMap<String,Object>();
-		params.put("id", idPedido);
-		List<Object> lista =
-			executeNamedQuery("listAllDetallePedidosByIdPedido", params);
-		return (ArrayList<DetallePedido>)((List<?>)lista);
 	}
 	
 	

@@ -19,7 +19,6 @@ request.setAttribute("path",path);
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	<meta name="author" content="Alexander Castañeda">
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
@@ -41,7 +40,6 @@ request.setAttribute("path",path);
     
          
      <div id="accordion" align="center">
-     	
      	<div class="group">
     	<h3>Categoria</h3>
     	<div>
@@ -115,7 +113,6 @@ request.setAttribute("path",path);
     	<div>
         	<p>
         		<a href="./newPedido.do">Agregar Nuevo Pedido</a><br><br>
-     			<a href="./form/prueba.jsp">prueba</a><br><br>	
     			<a href="./showPedido.do">Mostrar Todos los Pedidos</a><br><br>
         	</p>        	
         	<form action="./showPedido.do" method="post">
@@ -131,7 +128,7 @@ request.setAttribute("path",path);
         	</form>
         	<form action="./showPedido.do" method="post">
         	Buscar Pedidos por Estatus :
-        	<select name="cbEstatus" id="cbEstatus">
+        	<select name="cbEstatus">
 				<c:forEach var="ped" items="${pedidos}">
              		<option value = "${ped.estatus}">${ped.estatus}</option>
              	</c:forEach>
@@ -157,15 +154,11 @@ request.setAttribute("path",path);
      <script type="text/javascript">
      
      var found = [];
-	$("select option").each(
-		function() {
-  			if($.inArray(this.value, found) != -1){
-  				$(this).remove();
-  			}
-  			found.push(this.value);
-		}		
-	);
-	
+	$("select option").each(function() {
+  		if($.inArray(this.value, found) != -1) $(this).remove();
+  		found.push(this.value);
+	});
+     
      </script>
      
      

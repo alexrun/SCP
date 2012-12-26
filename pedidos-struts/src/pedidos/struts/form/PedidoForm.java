@@ -35,10 +35,7 @@ public class PedidoForm extends ActionForm {
 
 	/** estatus property */
 	private String estatus;
-	
-	/** listaItems property */
-	private String listaItems;
-	
+
 	/*
 	 * Generated Methods
 	 */
@@ -60,25 +57,9 @@ public class PedidoForm extends ActionForm {
 		if(cliente==null || cliente<=0){
 			errores.add("cliente",new ActionMessage("empty.cliente"));
 		}
-	/*	if(listaItems==null || listaItems.equals("")){
-			errores.add("listaItems",new ActionMessage("empty.listaItems"));
-		}*/
+		
 		return errores;
 	}
-
-	
-
-	public String getListaItems() {
-		return listaItems;
-	}
-
-
-
-	public void setListaItems(String listaItems) {
-		this.listaItems = listaItems;
-	}
-
-
 
 	/** 
 	 * Method reset

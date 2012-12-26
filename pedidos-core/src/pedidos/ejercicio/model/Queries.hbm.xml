@@ -73,12 +73,5 @@
 		from Pedidos pe join pe.formaPagos fp where fp.id =:idPago
 	</query> 
 	
-	
-	<!--  Buscar Detalle de Pedido -->
-	
-		<!--  Por Id Pedido -->	
-	<query name="listAllDetallePedidosByIdPedido">
-		from DetallePedido dp where dp.pedidos.id =:idPedido order by dp.id
-	</query>
 			
 </hibernate-mapping>
