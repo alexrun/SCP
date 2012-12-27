@@ -45,12 +45,12 @@ List<String> listaIt = new ArrayList<String>();
 			Fecha : <html:text property="fecha" name="fecha" value="20/12/2012"></html:text><html:errors property="fecha"/><br>
 			
 			
-			<table>
+			<table width="739" height="404">
 				<tbody>
 					<tr>
 						<td align="center" width="250">
 							Inventario Disponible<br>
-							<select multiple="multiple" size="10" name="listIt">
+							<select multiple="multiple" size="5" name="listIt">
 								<c:forEach var="it" items="${items}">
                   	        		<option value = "${it.id}">${it.nombre}</option>
                 				</c:forEach>
@@ -71,26 +71,13 @@ List<String> listaIt = new ArrayList<String>();
 						<td align="center" width="250">
 							Inventario Pedido<br>
 														
-							<html:select multiple="true" property="listaItems" size="10" name="pedidoForm">
-							</html:select>
-							
-						</td>					
+							<html:select multiple="true" property="listaItems" size="5" name="pedidoForm">
+							</html:select><br></td><td align="center" valign="middle">Cantidad<br>
+<br>
+<div><input type="text" size="5" value="1" name="tbCantidad"></div></td>					
 					</tr>
 				</tbody>
 			</table>
-			
-			
-
-			<br>		
-			
-			<div class="toggler">
-    			<div id="effect" class="ui-widget-content ui-corner-all">
-        			<h3 class="ui-widget-header ui-corner-all">Cantidad</h3>
-        			<p align="center"> 
-            			<input type="text" value="1" name="cantidad" align="middle">
-        			</p>
-    			</div>
-			</div>
 		
 
 			<br>

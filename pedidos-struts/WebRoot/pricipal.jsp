@@ -115,7 +115,6 @@ request.setAttribute("path",path);
     	<div>
         	<p>
         		<a href="./newPedido.do">Agregar Nuevo Pedido</a><br><br>
-     			<a href="./form/prueba.jsp">prueba</a><br><br>	
     			<a href="./showPedido.do">Mostrar Todos los Pedidos</a><br><br>
         	</p>        	
         	<form action="./showPedido.do" method="post">

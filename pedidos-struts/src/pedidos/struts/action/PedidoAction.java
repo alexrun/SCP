@@ -104,13 +104,15 @@ public class PedidoAction extends MappingDispatchAction {
 		
 		request.setAttribute("pedido", ped);
 		
+		
 			
 
 		
-		String lista=newPedidoForm.getListaItems();
+		String articuloId =newPedidoForm.getListaItems();
 		
-		System.out.println("lista: " + lista);
+		String cantidad = request.getParameter("tbCantidad");
 		
+	
 		
 		/*
 		List<String> listSe  =(List<String>) request.getAttribute("listSe");
@@ -128,8 +130,8 @@ public class PedidoAction extends MappingDispatchAction {
 		
 		//inicio Cliclo FALTA -----------------------------------------------
 				
-		int cant = 1;	
-		int idItem = 1; 		
+		int cant = new Integer(cantidad);	
+		int idItem = new Integer(articuloId); 		
 		
 		Item it = pserver.buscarItem(idItem);
 		double precio = cant*it.getPrecioVenta();		
@@ -138,10 +140,7 @@ public class PedidoAction extends MappingDispatchAction {
 		pserver.crearDetallePedido(detPed);
 				
 		//fin Ciclo FALTA ---------------------------------------------------
-				
-		
-		
-		
+						
 		
 		System.out.println("guardarPedido");
 		return mapping.findForward(fwd);

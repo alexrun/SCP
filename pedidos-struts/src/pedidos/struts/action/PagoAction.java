@@ -92,6 +92,8 @@ public class PagoAction extends MappingDispatchAction {
 		request.setAttribute("pago", pag);
 		System.out.println("guardarPago Pedido ID: " + pedId );
 		return mapping.findForward(fwd);
+		
+		
 	}
 	
 	public ActionForward deletePago(ActionMapping mapping, ActionForm form,
