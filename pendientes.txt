@@ -10,13 +10,14 @@ Listos:
 - Mostrar todos los pedidos por un estatus dado
 - Registrar Detalle de Pedido
 
+
 Pendientes:
--  Pagos para el pedido. - Mostrar todos los pedidos por un estatus dado
+- Pagos para el pedido. 
 - Modificar el estatus de un pedido previamente regsitrado.
 - Mostrar todos los pedidos entre un rango de fecha dado y una ciudad de ubicacion del cliente
 - Mostrar todos los pedidos por un tipo de pago determinado 
--Verificar  status eliminado
--Script que seleccione todos los elementos de una lista
+- Verificar  status eliminado
+- Script que seleccione todos los elementos de una lista
 
 
 

@@ -147,7 +147,8 @@ request.setAttribute("path",path);
         	</form>
         	
         	<form action="./showPedido.do" method="post"> 
-        	Buscar Pedidos por Rango de Fecha y Ciudad :<br>&nbsp;Ciudad:<select name="cbCiudad" id=""cbCiudad"">
+        	Buscar Pedidos por Rango de Fecha y Ciudad :<br>&nbsp;
+        	Ciudad:<select name="cbCiudad" id=""cbCiudad"">
 				<c:forEach var="ped" items="${pedidos}">
              		<option value = "${ped.cliente.ciudad}">${ped.cliente.ciudad}</option>
              	</c:forEach>         	
@@ -167,7 +168,7 @@ request.setAttribute("path",path);
     	<div class="group">
     	<h3>Pago</h3>
     	<div>       	
-        	<p>
+        	
         		
         		
         		<form action="./newPago.do" method="get">
@@ -187,7 +188,7 @@ request.setAttribute("path",path);
         				</button> 
         		</form>
         		
-        		
+        	<p>	
     			<a href="./showPago.do">Mostrar Todos los Pagos</a><br><br>
         	</p> 
     	</div>

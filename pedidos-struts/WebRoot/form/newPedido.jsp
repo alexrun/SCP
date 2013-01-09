@@ -23,6 +23,20 @@ List<String> listaIt = new ArrayList<String>();
     	<link rel="stylesheet" href="/resources/demos/style.css" />
     	<script type="text/javascript" src="${path}/js/funciones.js"></script>
     	
+    	
+    	<script>
+    		function listbox_selectall(listID, isSelect) {
+        		var listbox = document.getElementById(listID);
+        		for(var count=0; count < listbox.options.length; count++) {
+            		listbox.options[count].selected = isSelect;
+    			}
+			}
+    	
+    		function submit() {
+     			listbox_selectall('listaItems', true);
+     			return true;
+			}
+    	</script>
     	<style>
     		.toggler { width: 500px; height: 200px; }
     		#button { padding: .5em 1em; text-decoration: none; }
@@ -32,7 +46,7 @@ List<String> listaIt = new ArrayList<String>();
     	
 	</head>
 	<body>
-		<html:form action="/guardarPedido">
+		<html:form action="/guardarPedido" onsubmit="return submit()">
 			Cliente : <html:select property="cliente" >
 							<c:forEach var="cli" items="${clientes}">
                   	        	<html:option value = "${cli.id}">${cli.nombre} ${cli.apellido}</html:option>
