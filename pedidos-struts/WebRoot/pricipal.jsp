@@ -31,7 +31,13 @@ request.setAttribute("path",path);
          
 	<script type="text/javascript" src="${path}/js/funciones.js"></script>
 	
-	
+	   	
+    	<style>
+    		.toggler { width: 500px; height: 200px; }
+    		#button { padding: .5em 1em; text-decoration: none; }
+    		#effect { width: 240px; height: 135px; padding: 0.4em; position: relative; }
+    		#effect h3 { margin: 0; padding: 0.4em; text-align: center; }
+    	</style>
 
   </head>
   
@@ -139,6 +145,23 @@ request.setAttribute("path",path);
                	<p><img alt="" src="img/ok.png" height="20"></p>
         	</button> 
         	</form>
+        	
+        	<form action="./showPedido.do" method="post"> 
+        	Buscar Pedidos por Rango de Fecha y Ciudad :<br>&nbsp;Ciudad:<select name="cbCiudad" id=""cbCiudad"">
+				<c:forEach var="ped" items="${pedidos}">
+             		<option value = "${ped.cliente.ciudad}">${ped.cliente.ciudad}</option>
+             	</c:forEach>         	
+			</select> 
+			 
+			<br>Fecha Inicial: <input type="text" name="fechaIni" id="datepicker" lang="es">
+			 
+			<br>Fecha Final: <input type="text" name="fechaFin" id="datepickerB" lang="es">
+			
+  			<button type="submit">
+               	<p><img alt="" src="img/ok.png" height="20"></p>
+        	</button> 
+        	</form>
+        	
     	</div>
     	</div>
     	<div class="group">

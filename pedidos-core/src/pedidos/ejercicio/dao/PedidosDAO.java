@@ -1,6 +1,7 @@
 package pedidos.ejercicio.dao;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -112,6 +113,19 @@ public class PedidosDAO extends BaseDAO {
 		List<Object> lista =
 			executeNamedQuery("listAllDetallePedidosByIdPedido", params);
 		return (ArrayList<DetallePedido>)((List<?>)lista);
+	}
+
+	@SuppressWarnings("unchecked")
+	public ArrayList<Pedidos> listarPedidosByRangoFechasAndCiudad(
+			String ciudad, Date fechaIni, Date fechaFin) {
+		// TODO Auto-generated method stub
+		HashMap<String,Object> params = new HashMap<String,Object>();
+		params.put("ciudad", ciudad);
+		params.put("fechaIni", fechaIni);
+		params.put("fechaFin", fechaFin);
+		List<Object> lista =
+			executeNamedQuery("listAllPedidosByRangoFechasAndCiudad", params);
+		return (ArrayList<Pedidos>)((List<?>)lista);
 	}
 
 	

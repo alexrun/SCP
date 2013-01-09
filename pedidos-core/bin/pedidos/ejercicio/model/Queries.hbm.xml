@@ -65,7 +65,8 @@
 	
 	<!--  Por Rango Fecha y Ciudad -->
 	<query name="listAllPedidosByRangoFechasAndCiudad">
-		from Pedidos pe where pe.fecha &gt;= :fechaIni and pe.fecha &lt;= :fechaFin and pe.cliente.ciudad =:ciudad order by pe.id
+		from Pedidos pe where (pe.fecha between :fechaIni and :fechaFin) and pe.cliente.ciudad =:ciudad
+
 	</query> 
 		
 		<!--  Por Tipo Pago -->

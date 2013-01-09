@@ -3,6 +3,7 @@ package pedidos.services;
 //import java.text.ParseException;
 //import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 //import java.util.Date;
 //import java.util.HashMap;
 //import java.util.List;
@@ -184,6 +185,12 @@ public class PedidosServer {
 	public ArrayList<DetallePedido> listarDetallePedidosByIdPedido(Integer idPedido) {
 		// TODO Auto-generated method stub
 		return dao.listarDetallePedidosByIdPedido(idPedido);
+	}
+
+	public ArrayList<Pedidos> listarPedidosByRangoFechasAndCiudad(String ciudad,
+			Date fechaIni, Date fechaFin) {
+		// TODO Auto-generated method stub
+		return dao.listarPedidosByRangoFechasAndCiudad(ciudad,fechaIni,fechaFin);
 	}
 	
 	

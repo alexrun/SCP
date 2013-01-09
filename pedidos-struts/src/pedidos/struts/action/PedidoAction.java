@@ -69,6 +69,19 @@ public class PedidoAction extends MappingDispatchAction {
 			String status = request.getParameter("cbEstatus");			
 			request.setAttribute("pedidos", pserver.listarPedidosByEstatus(status));	
 			System.out.println("ID ESTATUS showPedido : " + status);
+		}else if (request.getParameter("cbCiudad")!=null){
+			String ciudad = request.getParameter("cbCiudad");	
+			SimpleDateFormat formatoDelTexto = new SimpleDateFormat("MM/dd/yyyy");
+			try {
+				Date fechaIni = formatoDelTexto.parse(request.getParameter("fechaIni"));
+				Date fechaFin = formatoDelTexto.parse(request.getParameter("fechaFin"));
+				request.setAttribute("pedidos", pserver.listarPedidosByRangoFechasAndCiudad(ciudad,fechaIni,fechaFin));	
+				} catch (ParseException ex) {
+				ex.printStackTrace();
+				}
+			
+			
+			System.out.println("ID CIUDAD showPedido : " + ciudad);
 		}else{
 			request.setAttribute("pedidos", pserver.listarPedidos());
 		}
