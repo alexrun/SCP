@@ -171,16 +171,17 @@
       path="/guardarPago"
       scope="request"
       type="pedidos.struts.action.PagoAction"
+      validate="false"
       cancellable="true">
       <forward name="goShow" path="/showPago.do" />
     </action>
     <action
-      attribute="newPagoForm"
       parameter="newPago"
       path="/newPago"
       type="pedidos.struts.action.PagoAction"
       cancellable="true">
-      <forward name="goNew" path="/form/newPago.jsp" />
+      <forward name="goTarjeta" path="/form/newPagoTarjeta.jsp" />
+      <forward name="goCheque" path="/form/newPagoCheque.jsp" />
     </action>
     <action
       input="/form/showPago.jsp"
@@ -195,6 +196,13 @@
       type="pedidos.struts.action.PruebaAction"
       cancellable="true">
       <forward name="OK" path="/pricipal.jsp" />
+    </action>
+    <action
+      parameter="showDetalle"
+      path="/showDetalle"
+      type="pedidos.struts.action.PedidoAction"
+      cancellable="true">
+      <forward name="goShow" path="/form/showDetalle.jsp" />
     </action>
     
     

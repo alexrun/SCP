@@ -4,12 +4,12 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/Sun JDK 1.6.0_13"/>
 	<classpathentry kind="con" path="melibrary.com.genuitec.eclipse.j2eedt.core.MYECLIPSE_JAVAEE_5_CONTAINER"/>
 	<classpathentry kind="con" path="melibrary.com.genuitec.eclipse.cross.easystruts.eclipse.STRUTS13_CONTAINER"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/pedidos-core"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/pedidos-services"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/displaytag-1.2.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/displaytag-export-poi-1.2.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/displaytag-portlet-1.2.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/pedidos-core"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/pedidos-services"/>
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
 </classpath>

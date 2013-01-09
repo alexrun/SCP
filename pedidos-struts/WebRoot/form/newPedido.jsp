@@ -39,10 +39,10 @@ List<String> listaIt = new ArrayList<String>();
                 			</c:forEach>
 						</html:select>
 						<html:errors property="cliente"/><br/>
-			Fecha : <input type="text" id="datepicker" lang="es"/><br/>
+						Fecha :<html:text  property="fecha" styleId="datepicker" lang="es" /><br/>
 			Estatus : <html:text property="estatus" value="Activo"/><html:errors property="estatus"/><br/>
 			
-			Fecha : <html:text property="fecha" name="fecha" value="20/12/2012"></html:text><html:errors property="fecha"/><br>
+		
 			
 			
 			<table width="739" height="404">

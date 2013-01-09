@@ -46,6 +46,12 @@ public class TarjetaCredito extends FormaPago implements java.io.Serializable {
         this.banco = banco;
     }
 
+    public TarjetaCredito(Integer numeroTarjeta, Integer mesVence, Integer anyoVence, String banco) {
+        this.numeroTarjeta = numeroTarjeta;
+        this.mesVence = mesVence;
+        this.anyoVence = anyoVence;
+        this.banco = banco;
+    }
    
     // Property accessors
 

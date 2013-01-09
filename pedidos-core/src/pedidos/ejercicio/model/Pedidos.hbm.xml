@@ -19,13 +19,13 @@
         <property name="estatus" type="java.lang.String">
             <column name="ESTATUS" length="10" />
         </property>
-        <set name="formaPagos" inverse="true">
+        <set name="formaPagos" inverse="true" cascade="delete">
             <key>
                 <column name="PEDIDO_REF" not-null="true" />
             </key>
             <one-to-many class="pedidos.ejercicio.model.FormaPago" />
         </set>
-        <set name="detallePedidos" inverse="true">
+        <set name="detallePedidos" inverse="true" cascade="delete">
             <key>
                 <column name="PEDIDO_REF" not-null="true" />
             </key>

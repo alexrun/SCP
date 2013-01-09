@@ -46,6 +46,10 @@ $(function() {
 });
 
 $(function() {
+	$( "#datepickerB" ).datepicker();
+});
+
+$(function() {
         $( "#accordion" ).accordion({        	
             event: "click hoverintent",
             heightStyle: "content",            	

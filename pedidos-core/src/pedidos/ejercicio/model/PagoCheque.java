@@ -47,6 +47,12 @@ public class PagoCheque extends FormaPago implements java.io.Serializable {
         this.fechaCheque = fechaCheque;
     }
 
+    public PagoCheque(Integer numeroCheque, String banco, String numeroCuenta, Date fechaCheque) {
+        this.numeroCheque = numeroCheque;
+        this.banco = banco;
+        this.numeroCuenta = numeroCuenta;
+        this.fechaCheque = fechaCheque;
+    }
    
     // Property accessors
 

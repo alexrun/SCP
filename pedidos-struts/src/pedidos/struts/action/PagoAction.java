@@ -16,7 +16,9 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.actions.MappingDispatchAction;
 
 import pedidos.ejercicio.model.FormaPago;
+import pedidos.ejercicio.model.PagoCheque;
 import pedidos.ejercicio.model.Pedidos;
+import pedidos.ejercicio.model.TarjetaCredito;
 import pedidos.services.PedidosServer;
 import pedidos.struts.form.PagoForm;
 
@@ -43,10 +45,22 @@ public class PagoAction extends MappingDispatchAction {
 	public ActionForward newPago(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response) {
 		
-		String fwd = "goNew";
+		String fwd =null;
+				
+		String tipoPago=(String) request.getParameter("cbTipoPago");
+		System.out.println("nuevo pago...");
+		if (tipoPago.equals("cheque")){
+			fwd = "goCheque";
+		}else if (tipoPago.equals("tarjeta")){
+			fwd = "goTarjeta";
+		}
+		
 		PedidosServer pserver = new PedidosServer();
-		request.setAttribute("pedidos", pserver.listarPedidos());
-		System.out.println("newPago");
+		Integer idPedido=new Integer(request.getParameter("cbPedidos"));
+		request.setAttribute("idPedido", idPedido);
+		request.setAttribute("detalle", pserver.buscarDetallePedido(idPedido).get(0));
+		request.setAttribute("tipoPago", tipoPago);
+		System.out.println("newPago" + tipoPago);
 		return mapping.findForward(fwd);
 	}
 	
@@ -64,33 +78,62 @@ public class PagoAction extends MappingDispatchAction {
 	
 	public ActionForward guardarPago(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response) {
+		
+		System.out.println("Guardar...");
+		
 		PagoForm newPagoForm = (PagoForm) form;
 		String fwd = "goShow";
-		PedidosServer pserver = new PedidosServer();	
-		SimpleDateFormat formatoDelTexto = new SimpleDateFormat("dd/MM/yyyy");
 		
-		Date fecha = null;
-		
+		String tipoPago=(String) request.getParameter("tipoPago");
+		PedidosServer pserver = new PedidosServer();
+		SimpleDateFormat formatoDelTexto = new SimpleDateFormat("MM/dd/yyyy");
+		Date fechaCheque = null;
+		Date fechaPago = null;
 		try {
-			fecha = formatoDelTexto.parse(newPagoForm.getFechaPago());
+			
+			if (tipoPago.equals("cheque")){
+				fechaCheque = formatoDelTexto.parse(request.getParameter("fechaCheque"));
+				fechaPago = formatoDelTexto.parse(newPagoForm.getFechaPago());
+				Integer idPedido=new Integer( request.getParameter("idPedido"));
+				Pedidos p = pserver.buscarPedido(idPedido);
+				PagoCheque pc= new PagoCheque(new Integer(request.getParameter("numeroCheque")),
+												request.getParameter("tbBanco"),
+												request.getParameter("numeroCuenta"), fechaCheque	);
+				
+				pc.setMonto(newPagoForm.getMonto());
+				pc.setPropietario(newPagoForm.getPropietario());
+				pc.setPedidos(p);
+				pc.setFechaPago(fechaPago);
+				p.setEstatus("Finalizado");
+				pserver.crearPagoCheque(pc);	
+				request.setAttribute("pagoCheque", pc);
+				System.out.println("guardarPago Pedido ID: " + idPedido );
+				
+			}else if (tipoPago.equals("tarjeta")){
+				
+				fechaPago = formatoDelTexto.parse(newPagoForm.getFechaPago());
+				Integer idPedido=new Integer( request.getParameter("idPedido"));
+				Pedidos p = pserver.buscarPedido(idPedido);
+				TarjetaCredito tc= new TarjetaCredito(new Integer(request.getParameter("numeroTarjeta")),
+														new Integer(request.getParameter("mesVence")),
+														new Integer(request.getParameter("anyoVence")), 
+														request.getParameter("tbBanco"));
+				
+				tc.setMonto(newPagoForm.getMonto());
+				tc.setPropietario(newPagoForm.getPropietario());
+				tc.setPedidos(p);
+				tc.setFechaPago(fechaPago);
+				p.setEstatus("Finalizado");
+				pserver.crearPagoTarjetaCredito(tc);	
+				request.setAttribute("pagoTarjeta", tc);
+				System.out.println("guardarPago Pedido ID: " + idPedido );
+			}
+			
+			
 			} catch (ParseException ex) {
 			ex.printStackTrace();
 			}
 		
-			Integer pedId = newPagoForm.getPedido();
-			
-		Pedidos ped = pserver.buscarPedido(pedId);
-		
-		System.out.println(ped);
-		
-		FormaPago pag = new FormaPago(ped,
-									newPagoForm.getPropietario(),
-									newPagoForm.getMonto(),
-									fecha);
-
-		pserver.crearPago(pag);	
-		request.setAttribute("pago", pag);
-		System.out.println("guardarPago Pedido ID: " + pedId );
 		return mapping.findForward(fwd);
 		
 		

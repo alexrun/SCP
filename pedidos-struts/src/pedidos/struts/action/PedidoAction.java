@@ -85,12 +85,13 @@ public class PedidoAction extends MappingDispatchAction {
 		
 		
 		
-		SimpleDateFormat formatoDelTexto = new SimpleDateFormat("dd/MM/yyyy");
+		SimpleDateFormat formatoDelTexto = new SimpleDateFormat("MM/dd/yyyy");
 		
 		Date fecha = null;
 		
 		try {
 			fecha = formatoDelTexto.parse(newPedidoForm.getFecha());
+			
 			} catch (ParseException ex) {
 			ex.printStackTrace();
 			}
@@ -164,6 +165,17 @@ public class PedidoAction extends MappingDispatchAction {
 		Pedidos ped = pserver.buscarPedido(idPedido);
 		pserver.deletePedido(ped);
 		System.out.println("deletePedido");
+		return mapping.findForward(fwd);
+	}
+	
+	public ActionForward showDetalle(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response) {
+		
+		String fwd = "goShow";
+		PedidosServer pserver = new PedidosServer();
+		int idPedido = new Integer(request.getParameter("id"));
+		request.setAttribute("detalles", pserver.listarDetallePedidosByIdPedido(idPedido));
+		System.out.println("showDetalle");	
 		return mapping.findForward(fwd);
 	}
 	

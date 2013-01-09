@@ -108,11 +108,12 @@ public class PedidosDAO extends BaseDAO {
 	public ArrayList<DetallePedido> listarDetallePedidosByIdPedido(int idPedido) {
 		// TODO Auto-generated method stub
 		HashMap<String,Object> params = new HashMap<String,Object>();
-		params.put("id", idPedido);
+		params.put("idPedido", idPedido);
 		List<Object> lista =
 			executeNamedQuery("listAllDetallePedidosByIdPedido", params);
 		return (ArrayList<DetallePedido>)((List<?>)lista);
 	}
+
 	
 	
 

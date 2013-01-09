@@ -96,7 +96,7 @@ request.setAttribute("path",path);
 			</form>
     		<form action="./showCliente.do" method="post"> 
   			Buscar Cliente por Ciudad :
-  			<select name="cbCiudad">
+  			<select name="cbCiudad" id="cbCiudad">
 			 	<c:forEach var="cli" items="${clientes}">
 			 				 	
 			 	
@@ -145,7 +145,26 @@ request.setAttribute("path",path);
     	<h3>Pago</h3>
     	<div>       	
         	<p>
-        		<a href="./newPago.do">Agregar Nuevo Pago</a><br><br>
+        		
+        		
+        		<form action="./newPago.do" method="get">
+        			Agregar Nuevo Pago :
+        				<select name="cbPedidos" id="cbPedidos">
+							<c:forEach var="ped" items="${pedidos}">
+             					<option value = "${ped.id}">${ped.id}, ${ped.cliente.nombre} ${ped.cliente.apellido}</option>
+             				</c:forEach>
+						</select>
+						Tipo Pago : 
+						<select name="cbTipoPago" id="cbTipoPago">
+							<option selected value="tarjeta">Tarjeta de Credito</option>
+							<option value="cheque">Cheque</option>
+						</select>
+  						<button type="submit">
+               				<p><img alt="" src="img/ok.png" height="20"></p>
+        				</button> 
+        		</form>
+        		
+        		
     			<a href="./showPago.do">Mostrar Todos los Pagos</a><br><br>
         	</p> 
     	</div>
@@ -156,7 +175,7 @@ request.setAttribute("path",path);
      <script type="text/javascript">
      
      var found = [];
-	$("select option").each(
+	$("cbCiudad").each(
 		function() {
   			if($.inArray(this.value, found) != -1){
   				$(this).remove();

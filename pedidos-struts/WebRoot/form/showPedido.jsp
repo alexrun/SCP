@@ -67,7 +67,14 @@ request.setAttribute("path",path);
                                <td align="center"> ${pe.cliente.nombre}</td>
                                <td align="center"> ${pe.fecha}</td>
                                <td align="center"> ${pe.estatus}</td>       
-                               <td align="center"> Ver</td>                           
+                               <td align="center"> 
+                               		<form action="${path}/showDetalle.do" method="post">
+                               			<button type="submit">
+                               				<p><img alt="" src="img/ok.png" height="25"></p>
+                               			</button>
+                               			<input type="hidden" value="${pe.id}" name="id">
+                               		</form>
+                               </td>                           
                                <td align="center">
                                		<form action="${path}/deletePedido.do" method="post">
                                			<button type="submit">

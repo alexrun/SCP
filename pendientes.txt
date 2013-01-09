@@ -1,0 +1,31 @@
+Listos:
+- Crear Categorias, Items y Clientes.
+- Eliminar Categorias, Itmes y Clientes.
+- Registrar pedidos 
+- Mostrar todos las Categorias
+- Mostrar items por Categoria
+- Mostrar Clientes por ciudad de ubicacion
+- Buscar Clientes por cedula
+- Mostrar todos los pedidos de un cliente
+- Mostrar todos los pedidos por un estatus dado
+- Registrar Detalle de Pedido
+
+Pendientes:
+-  Pagos para el pedido. - Mostrar todos los pedidos por un estatus dado
+- Modificar el estatus de un pedido previamente regsitrado.
+- Mostrar todos los pedidos entre un rango de fecha dado y una ciudad de ubicacion del cliente
+- Mostrar todos los pedidos por un tipo de pago determinado 
+-Verificar  status eliminado
+-Script que seleccione todos los elementos de una lista
+
+
+
+
+
+
+Fecha : <html:text property="fecha" name="fecha" value="20/12/2012"></html:text><html:errors property="fecha"/><br>
+Fecha : <input type="text" name="fecha" id="datepicker" lang="es"/><br/>
+<a href="./newPago.do">Agregar Nuevo Pago</a><br><br>
+select option
+<html:text property="monto"/><br><html:errors property="monto"/>
+Fecha: <html:text property="fechaPago"/><html:errors property="fechaPago"/><br/> newPagoTarjeta.jsp
