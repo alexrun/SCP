@@ -46,20 +46,34 @@ List<String> listaIt = new ArrayList<String>();
     	
 	</head>
 	<body>
-		<html:form action="/guardarPedido" onsubmit="return submit()">
-			Cliente : <html:select property="cliente" >
-							<c:forEach var="cli" items="${clientes}">
-                  	        	<html:option value = "${cli.id}">${cli.nombre} ${cli.apellido}</html:option>
-                			</c:forEach>
-						</html:select>
-						<html:errors property="cliente"/><br/>
-						Fecha :<html:text  property="fecha" styleId="datepicker" lang="es" /><br/>
-			Estatus : <html:text property="estatus" value="Activo"/><html:errors property="estatus"/><br/>
-			
+	</br>
+	<table width="50%" height="" align="center"  >
+		<tbody>
 		
-			
-			
-			<table width="739" height="404">
+		<html:form action="/guardarPedido" onsubmit="return submit()">
+		<tr>
+				<td align="center">Cliente : </td>
+			<td align="center">
+				<html:select property="cliente" >
+					<c:forEach var="cli" items="${clientes}">
+                  	     <html:option  value = "${cli.id}">${cli.nombre} ${cli.apellido}</html:option>
+                	</c:forEach>
+				</html:select>
+						<html:errors property="cliente"/>
+			</td>
+		</tr>
+		<tr>
+			<td align="center">Fecha :</td>
+			<td align="center"><html:text  property="fecha" styleId="datepicker" lang="es" /></td>
+		</tr>
+		<tr>
+			<td align="center">Estatus :</td> 
+			<td align="center">Activo<html:hidden  property="estatus" value="Activo"/><html:errors property="estatus"/></td> 
+		</tr>	
+	
+			<tr>
+			<td colspan="2">
+			<table width="100%" height="100%" align="center">
 				<tbody>
 					<tr>
 						<td align="center" width="250">
@@ -85,20 +99,29 @@ List<String> listaIt = new ArrayList<String>();
 						<td align="center" width="250">
 							Inventario Pedido<br>
 														
-							<html:select multiple="true" property="listaItems" size="5" name="pedidoForm">
+							<html:select multiple="true" property="listaItems" size="5" name="pedidoForm" styleId="listaItems" >
 							</html:select><br></td><td align="center" valign="middle">Cantidad<br>
 <br>
 <div><input type="text" size="5" value="1" name="tbCantidad"></div></td>					
 					</tr>
 				</tbody>
 			</table>
-		
+			</td>
+		</tr>
 
-			<br>
 			
+		<tr>
+			<td colspan="2" align="center">
 			<html:submit value="Guardar"/><html:cancel value="Cancelar"/>
-			
+			</td>
+		</tr>
 		</html:form>
+		
+	</tbody>
+</table>
+		
+		
+		
 			<a href="./principal.do">Atras</a>
 		
 	</body>

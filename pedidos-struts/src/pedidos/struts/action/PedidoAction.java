@@ -82,6 +82,14 @@ public class PedidoAction extends MappingDispatchAction {
 			
 			
 			System.out.println("ID CIUDAD showPedido : " + ciudad);
+		}else if (request.getParameter("cbPago")!=null){
+			String pago = request.getParameter("cbPago");
+			if (pago.equals("tarjeta")){
+				request.setAttribute("pedidos", pserver.listarPedidosByTarjeta());
+			}else if (pago.equals("cheque")){
+				request.setAttribute("pedidos", pserver.listarPedidosByCheque());
+			}
+			System.out.println("ID Pago showPedido : " + pago);
 		}else{
 			request.setAttribute("pedidos", pserver.listarPedidos());
 		}

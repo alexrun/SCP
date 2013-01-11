@@ -42,6 +42,9 @@ public class PrincipalAction extends MappingDispatchAction {
 		request.setAttribute("categorias", pserver.listarCategorias());
 		request.setAttribute("clientes", pserver.listarClientes());
 		request.setAttribute("pedidos", pserver.listarPedidos());
+		request.setAttribute("pedidosActivos", pserver.listarPedidosByEstatus("Activo"));
+		request.setAttribute("ciudades", pserver.listarCiudades());
+		request.setAttribute("estatus", pserver.listarEstatus());
 		return mapping.findForward(fwd);
 	}
 	

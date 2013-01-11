@@ -36,7 +36,10 @@ function move(tbFrom, tbTo){
 		var no = new Option();
 		no.value = arrLU[arrTo[ii]];
 		no.text = arrTo[ii];
+		
 		tbTo[ii] = no;
+		tbTo.options[ii].selected=true;
+	
 	}
 
 }

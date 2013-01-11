@@ -103,11 +103,8 @@ request.setAttribute("path",path);
     		<form action="./showCliente.do" method="post"> 
   			Buscar Cliente por Ciudad :
   			<select name="cbCiudad" id="cbCiudad">
-			 	<c:forEach var="cli" items="${clientes}">
-			 				 	
-			 	
-			 		
-             		<option value = "${cli.ciudad}">${cli.ciudad}</option>
+			 	<c:forEach var="c" items="${ciudades}">
+             		<option value = "${c}">${c}</option>
              	</c:forEach>
 			</select>
   			<button type="submit">
@@ -137,8 +134,8 @@ request.setAttribute("path",path);
         	<form action="./showPedido.do" method="post">
         	Buscar Pedidos por Estatus :
         	<select name="cbEstatus" id="cbEstatus">
-				<c:forEach var="ped" items="${pedidos}">
-             		<option value = "${ped.estatus}">${ped.estatus}</option>
+				<c:forEach var="e" items="${estatus}">
+             		<option value = "${e}">${e}</option>
              	</c:forEach>
 			</select>
   			<button type="submit">
@@ -146,11 +143,23 @@ request.setAttribute("path",path);
         	</button> 
         	</form>
         	
+        	<form action="./showPedido.do" method="post">
+        	Buscar Pedidos por Tipo de Pago :
+        	<select name="cbPago" id="cbPago">
+             		<option selected value="tarjeta">Tarjeta de Credito</option>
+					<option value="cheque">Cheque</option>
+			</select>
+  			<button type="submit">
+               	<p><img alt="" src="img/ok.png" height="20"></p>
+        	</button> 
+        	</form>
+        	
+        	
         	<form action="./showPedido.do" method="post"> 
         	Buscar Pedidos por Rango de Fecha y Ciudad :<br>&nbsp;
         	Ciudad:<select name="cbCiudad" id=""cbCiudad"">
-				<c:forEach var="ped" items="${pedidos}">
-             		<option value = "${ped.cliente.ciudad}">${ped.cliente.ciudad}</option>
+				<c:forEach var="c" items="${ciudades}">
+             		<option value = "${c}">${c}</option>
              	</c:forEach>         	
 			</select> 
 			 
@@ -174,7 +183,7 @@ request.setAttribute("path",path);
         		<form action="./newPago.do" method="get">
         			Agregar Nuevo Pago :
         				<select name="cbPedidos" id="cbPedidos">
-							<c:forEach var="ped" items="${pedidos}">
+							<c:forEach var="ped" items="${pedidosActivos}">
              					<option value = "${ped.id}">${ped.id}, ${ped.cliente.nombre} ${ped.cliente.apellido}</option>
              				</c:forEach>
 						</select>

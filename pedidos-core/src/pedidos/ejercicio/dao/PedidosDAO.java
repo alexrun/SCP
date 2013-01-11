@@ -128,7 +128,33 @@ public class PedidosDAO extends BaseDAO {
 		return (ArrayList<Pedidos>)((List<?>)lista);
 	}
 
-	
-	
+	@SuppressWarnings("unchecked")
+	public ArrayList<Pedidos> listarPedidosByTarjeta() {
+		List<Object> lista =
+			executeNamedQuery("listarPedidosByTarjeta", null);
+		return (ArrayList<Pedidos>)((List<?>)lista);
+	}
+
+	@SuppressWarnings("unchecked")
+	public ArrayList<Pedidos> listarPedidosByCheque() {
+		List<Object> lista =
+			executeNamedQuery("listarPedidosByCheque", null);
+		return (ArrayList<Pedidos>)((List<?>)lista);
+	}
+
+	@SuppressWarnings("unchecked")
+	public ArrayList<String> listarCiudades() {
+		List<Object> lista =
+			executeNamedQuery("listAllCiudades", null);
+		return (ArrayList<String>)((List<?>)lista);
+	}
+
+	@SuppressWarnings("unchecked")
+	public ArrayList<String> listarEstatus() {
+		List<Object> lista =
+			executeNamedQuery("listAllEstatus", null);
+		return (ArrayList<String>)((List<?>)lista);
+	}
+
 
 }

@@ -75,11 +75,32 @@
 	</query> 
 	
 	
+	
+		<!--  Por Tipo Pago Tarjeta -->
+	<query name="listarPedidosByTarjeta">
+		select t.pedidos from TarjetaCredito t
+	</query>
+	
+		<!--  Por Tipo Pago Cheque-->
+	<query name="listarPedidosByCheque">
+		select c.pedidos from PagoCheque c
+	</query>
+	
 	<!--  Buscar Detalle de Pedido -->
 	
 		<!--  Por Id Pedido -->	
 	<query name="listAllDetallePedidosByIdPedido">
 		from DetallePedido dp where dp.pedidos.id =:idPedido order by dp.id
+	</query>
+	
+	<!--  Buscar Estatus -->	
+	<query name="listAllEstatus">
+		select p.estatus from Pedidos p group by p.estatus
+	</query>
+	
+	<!--  Buscar Ciudades -->	
+	<query name="listAllCiudades">
+		select p.cliente.ciudad from Pedidos p group by p.cliente.ciudad
 	</query>
 			
 </hibernate-mapping>

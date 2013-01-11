@@ -192,7 +192,27 @@ public class PedidosServer {
 		// TODO Auto-generated method stub
 		return dao.listarPedidosByRangoFechasAndCiudad(ciudad,fechaIni,fechaFin);
 	}
+
+	public ArrayList<Pedidos> listarPedidosByTarjeta() {
+		// TODO Auto-generated method stub
+		return dao.listarPedidosByTarjeta();
+	}
 	
+	public ArrayList<Pedidos> listarPedidosByCheque() {
+		// TODO Auto-generated method stub
+		return dao.listarPedidosByCheque();
+	}
+
+	public ArrayList<String> listarCiudades() {
+		// TODO Auto-generated method stub
+		return dao.listarCiudades();
+	}
+
+	public ArrayList<String> listarEstatus() {
+		// TODO Auto-generated method stub
+		return dao.listarEstatus();
+	}
+
 	
 
 }
